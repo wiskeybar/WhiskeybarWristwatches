@@ -1,3 +1,46 @@
+:root {
+  --lato: 'Lato', sans-serif;
+  --oswald: 'Oswald', sans-serif;
+}
+
+@media (min-width: 20em) {
+  p,
+  i {
+    font-size: calc(1rem + ((1vw - 0.2em) * 0.5));
+  }
+  h1 {
+    font-size: calc(1.375rem + ((1vw - 0.2em) * 0.625));
+  }
+  h2 {
+    font-size: calc(1.375rem + ((1vw - 0.2em) * 0.580));
+  }
+  h3 {
+    font-size: calc(1.375rem + ((1vw - 0.2em) * 0.530));
+  }
+  h4 {
+    font-size: calc(1.375rem + ((1vw - 0.2em) * 0.515));
+  }
+}
+
+@media (min-width: 120em) {
+  p,
+  i {
+    font-size: 1.5em;
+  }
+  h1 {
+    font-size: 3.0em;
+  }
+  h2 {
+    font-size: 2.75em;
+  }
+  h3 {
+    font-size: 2.35em;
+  }
+  h4 {
+    font-size: 2em;
+  }
+}
+
 body {
   height: 200vh;
   max-width: 1620px;
@@ -10,16 +53,10 @@ button {
   cursor: pointer;
   text-transform: uppercase;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .top {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr;
-  grid-template-columns: 1fr;
-  -ms-grid-rows: 0.2fr 1fr;
-  grid-template-rows: 0.2fr 1fr;
   position: relative;
 }
 
@@ -29,19 +66,32 @@ button {
 
 .top_expanded__item {
   padding: 10px;
+  background-color: white;
+  z-index: 2;
 }
 
-.top_expanded__item:nth-child(2) {
-  -webkit-box-ordinal-group: -1;
-  -ms-flex-order: -2;
-  order: -2;
+.top_expanded__item:nth-child(1) {
+  margin-right: auto;
+}
+
+.top_expanded .searchField {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-transition: 0.5s -webkit-transform linear;
+  transition: 0.5s -webkit-transform linear;
+  transition: 0.5s transform linear;
+  transition: 0.5s transform linear, 0.5s -webkit-transform linear;
+  opacity: 0;
+}
+
+.top_expanded .searchFieldActive {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
 }
 
 .top_expanded__companyName {
   text-align: center;
-  -webkit-box-flex: 2;
-  -ms-flex-positive: 2;
-  flex-grow: 2;
 }
 
 @media (min-width: 736px) {
@@ -49,6 +99,8 @@ button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    overflow: hidden;
+    z-index: 1;
   }
 }
 
@@ -59,16 +111,17 @@ button {
   left: 50%;
   width: 80%;
   -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: rgba(128, 128, 128, 0.2);
 }
 
 .top_minified {
   position: fixed;
   display: none;
   width: 100%;
-  border: 2px solid blue;
   left: -120%;
   top: 0;
+  background-color: black;
   -webkit-transition: 0.3s all linear;
   transition: 0.3s all linear;
 }
@@ -80,22 +133,44 @@ button {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
     height: 50vh;
     -ms-flex-pack: distribute;
-    justify-content: space-around;
+        justify-content: space-around;
   }
 }
 
+.top_minified .searchField {
+  height: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.top_minified .searchFieldActive {
+  height: auto;
+  padding: 10px;
+  margin: 0 auto;
+  border: auto;
+  width: 80%;
+}
+
 .top_minified__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -ms-flex-preferred-size: 15%;
-  flex-basis: 15%;
+      flex-basis: 15%;
   background-color: rgba(128, 128, 128, 0.11);
+  color: white;
 }
 
 .top_minified__item i {
-  margin-right: 20px;
+  margin-left: 40px;
 }
 
 .top_minified__opener {
@@ -121,10 +196,10 @@ button {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
     -ms-flex-pack: distribute;
-    justify-content: space-around;
+        justify-content: space-around;
   }
 }
 
@@ -132,7 +207,7 @@ button {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url(/img/fabrizio-verrecchia-180315-unsplash.jpg);
+  background-image: url("/img/fabrizio-verrecchia-180315-unsplash.jpg");
   background-size: cover;
   background-position: center;
   z-index: -1;
@@ -146,5 +221,4 @@ button {
 .top_nav__listElement:hover {
   border-bottom: 1px solid white;
 }
-
 /*# sourceMappingURL=style.css.map */

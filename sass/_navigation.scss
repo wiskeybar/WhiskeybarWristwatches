@@ -1,7 +1,4 @@
 .top {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.2fr 1fr;
     position: relative;
 
     &_expanded {
@@ -9,19 +6,36 @@
 
         &__item {
             padding: 10px;
+            background-color: white;
+            z-index: 2;
 
-            &:nth-child(2) {
-                order: -2;
+            &:nth-child(1) {
+                margin-right: auto;
             }
+
+
+        }
+
+        .searchField {
+            transform: translateX(100%);
+            transition: 0.5s transform linear;
+            opacity: 0;
+
+        }
+
+        .searchFieldActive {
+            transform: translateX(0);
+            opacity: 1;
         }
 
         &__companyName {
             text-align: center;
-            flex-grow: 2;
         }
 
         @media (min-width: 736px) {
             display: flex;
+            overflow: hidden;
+            z-index: 1;
         }
     }
 
@@ -31,7 +45,8 @@
         top: 5%;
         left: 50%;
         width: 80%;
-        transform: translate(-50%, -50%)
+        transform: translate(-50%, -50%);
+        background-color: rgba(128, 128, 128, 0.2)
     }
 
 
@@ -39,9 +54,9 @@
         position: fixed;
         display: none;
         width: 100%;
-        border: 2px solid blue;
         left: -120%;
         top: 0;
+        background-color: black;
         transition: 0.3s all linear;
 
 
@@ -52,13 +67,33 @@
             justify-content: space-around;
         }
 
+        .searchField {
+            height: 0;
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+
+        .searchFieldActive {
+            height: auto;
+            padding: 10px;
+            margin: 0 auto;
+            border: auto;
+            width: 80%;
+        }
+
+
         &__item {
+            display: flex;
+            justify-content: space-between;
             flex-basis: 15%;
             background-color: rgba(128, 128, 128, 0.11);
+            color: white;
+
 
             i {
-                margin-right: 20px;
-                ;
+                margin-left: 40px;
+
             }
         }
 
@@ -66,6 +101,7 @@
             position: fixed;
             left: 1%;
             top: 1%;
+
 
         }
 
@@ -94,7 +130,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background-image: url(/img/fabrizio-verrecchia-180315-unsplash.jpg);
+            background-image: url("/img/fabrizio-verrecchia-180315-unsplash.jpg");
             background-size: cover;
             background-position: center;
             z-index: -1;
