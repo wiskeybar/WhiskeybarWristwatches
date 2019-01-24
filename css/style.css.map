@@ -1,0 +1,16 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../sass/style.scss",
+        "../sass/_variables.scss",
+        "../sass/_reset.scss",
+        "../sass/_header.scss",
+        "../sass/_navigation.scss",
+        "../sass/_sections.scss",
+        "../sass/_trending_section.scss",
+        "../sass/_footer.scss"
+    ],
+    "names": [],
+    "file": "style.css"
+}
