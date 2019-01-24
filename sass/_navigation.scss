@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 0.2fr 1fr;
+    position: relative;
 
     &_expanded {
         display: none;
@@ -22,6 +23,15 @@
         @media (min-width: 736px) {
             display: flex;
         }
+    }
+
+    &_fixed {
+        position: fixed;
+        background-color: white;
+        top: 5%;
+        left: 50%;
+        width: 80%;
+        transform: translate(-50%, -50%)
     }
 
 

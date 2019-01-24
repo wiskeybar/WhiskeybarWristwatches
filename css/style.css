@@ -10,16 +10,17 @@ button {
   cursor: pointer;
   text-transform: uppercase;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .top {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+  grid-template-columns: 1fr;
   -ms-grid-rows: 0.2fr 1fr;
-      grid-template-rows: 0.2fr 1fr;
+  grid-template-rows: 0.2fr 1fr;
+  position: relative;
 }
 
 .top_expanded {
@@ -32,15 +33,15 @@ button {
 
 .top_expanded__item:nth-child(2) {
   -webkit-box-ordinal-group: -1;
-      -ms-flex-order: -2;
-          order: -2;
+  -ms-flex-order: -2;
+  order: -2;
 }
 
 .top_expanded__companyName {
   text-align: center;
   -webkit-box-flex: 2;
-      -ms-flex-positive: 2;
-          flex-grow: 2;
+  -ms-flex-positive: 2;
+  flex-grow: 2;
 }
 
 @media (min-width: 736px) {
@@ -49,6 +50,16 @@ button {
     display: -ms-flexbox;
     display: flex;
   }
+}
+
+.top_fixed {
+  position: fixed;
+  background-color: white;
+  top: 5%;
+  left: 50%;
+  width: 80%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .top_minified {
@@ -69,17 +80,17 @@ button {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     height: 50vh;
     -ms-flex-pack: distribute;
-        justify-content: space-around;
+    justify-content: space-around;
   }
 }
 
 .top_minified__item {
   -ms-flex-preferred-size: 15%;
-      flex-basis: 15%;
+  flex-basis: 15%;
   background-color: rgba(128, 128, 128, 0.11);
 }
 
@@ -110,10 +121,10 @@ button {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -ms-flex-pack: distribute;
-        justify-content: space-around;
+    justify-content: space-around;
   }
 }
 
@@ -135,4 +146,5 @@ button {
 .top_nav__listElement:hover {
   border-bottom: 1px solid white;
 }
+
 /*# sourceMappingURL=style.css.map */
