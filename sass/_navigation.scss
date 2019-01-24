@@ -1,0 +1,73 @@
+.top {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 1fr;
+
+    &_basic {
+        display: flex;
+
+        &__item {
+            align-self: flex-start;
+            display: none;
+
+
+            &:nth-child(2) {
+                order: -1;
+            }
+
+            @media (min-width: 736px) {
+                display: block;
+            }
+
+            @media (max-width: 735px) {}
+        }
+
+        &__companyName {
+            order: 0;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+
+        @media (max-width: 735px) {
+            flex-direction: column;
+        }
+    }
+
+
+    &_nav {
+        width: 100%;
+        height: 30vh;
+        display: none;
+        position: relative;
+
+        @media (min-width: 736px) {
+            display: flex;
+            align-items: center;
+            justify-content: space-around
+        }
+
+        &__image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url(/img/fabrizio-verrecchia-180315-unsplash.jpg);
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        &__listElement {
+            color: white;
+            border-bottom: 1px solid black;
+
+            &:hover {
+                border-bottom: 1px solid white;
+            }
+        }
+    }
+}
+
+
+
+// top_basic__item top_nav__listElement
