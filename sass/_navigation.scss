@@ -1,5 +1,6 @@
 .top {
     position: relative;
+    overflow: hidden;
 
     // CSS for upper menu standard and searchbars in both views;
     &_expanded {
@@ -23,7 +24,7 @@
         }
 
         &__item:hover {
-            color: gray;
+            color: orangered;
         }
 
         .searchField {
@@ -42,6 +43,10 @@
             margin: 0;
             z-index: 1;
             background-color: #fff;
+
+            @media (max-width: 736px) {
+                margin-bottom: 5vh;
+            }
         }
 
         @media (min-width: 736px) {
@@ -119,11 +124,12 @@
     // CSS for side menu when maximized;
     &_maximized {
         left: 0;
+        z-index: 2;
     }
 
     // CSS for items menu and background image;
     &_nav {
-        width: 100%;
+        max-width: 90vw;
         height: 30vh;
         display: none;
         position: relative;
@@ -131,25 +137,49 @@
         @media (min-width: 736px) {
             display: flex;
             align-items: center;
-            justify-content: space-around
+            justify-content: space-evenly;
         }
 
         &__image {
-            position: absolute;
             max-width: 99%;
             z-index: -1;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            position: absolute;
+            filter: grayscale(30%);
+            transition: 0.2s linear filter;
         }
 
         &__listElement {
+            box-sizing: content-box;
             color: white;
+            flex-basis: 10%;
+            font-family: var(--oswald);
             border-bottom: 1px solid black;
+            font-size: var(--paragraphFZmin);
+            text-shadow: 1px 1px 25px black;
+            box-shadow: 0 0 25px inset black;
+            border-radius: 5%;
+            margin-bottom: 6%;
+            letter-spacing: 1px;
+
+            &:hover~.top_nav__image {
+                filter: grayscale(100%)
+            }
 
             &:hover {
                 border-bottom: 1px solid white;
+                color: black;
+                text-shadow: 1px 1px 10px orangered;
+                box-shadow: 0 0 25px inset orangered;
+                font-weight: bold;
+
+
             }
+
+
         }
+
+
+
+
     }
 }

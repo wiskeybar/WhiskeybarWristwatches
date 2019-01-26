@@ -1,0 +1,113 @@
+.newItems {
+    position: relative;
+
+    &_headline {
+        text-align: center;
+    }
+
+    &_mainHeadline {}
+
+
+
+    &_paragraphOne {
+        text-align: center;
+        letter-spacing: 1px;
+    }
+
+    &_examplePicContainer {
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 0.5fr;
+        grid-gap: 3px;
+        grid-template-areas: "picture1 picture2 picture3 picture4"
+            "more1 more1 more2 more2";
+
+
+
+        @media (max-width: 735px) {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 0.5fr;
+            grid-template-areas:
+                "picture1 picture2"
+                "more1 more2";
+
+        }
+
+
+
+        &__examplePic {
+            max-width: 75%;
+            filter: grayscale(100%);
+            transition: 0.3s linear all;
+            align-self: center;
+            border-radius: 3%;
+            justify-self: center;
+        }
+
+        &__examplePic:nth-of-type(1) {
+            grid-area: picture1;
+        }
+
+        &__examplePic:nth-of-type(2) {
+            grid-area: picture2;
+
+        }
+
+        &__examplePic:nth-of-type(3) {
+            grid-area: picture3;
+
+            @media (max-width: 735px) {
+                display: none;
+            }
+        }
+
+        &__examplePic:nth-of-type(4) {
+            grid-area: picture4;
+
+            @media (max-width: 735px) {
+                display: none;
+            }
+
+        }
+
+        &__examplePic:hover {
+            left: 50%;
+            top: 50%;
+            filter: grayscale(0);
+            z-index: 4;
+            transform: scale(1.1)
+        }
+
+
+
+        &__seeMoreBtn {
+            font-size: calc(var(--paragraphFZmin)*0.75);
+            justify-self: stretch;
+            transition: 0.2s linear all;
+
+            @media (max-width: 735px) {
+                border: 1px solid black;
+                box-shadow: 0 0 2px inset black;
+            }
+        }
+
+        &__seeMoreBtn:nth-of-type(1) {
+            grid-area: more1;
+
+
+        }
+
+        &__seeMoreBtn:nth-of-type(2) {
+            grid-area: more2;
+        }
+
+        &__seeMoreBtn:hover {
+            transform: scale(1.02)
+        }
+    }
+
+    &_secondHeadline {}
+
+    &_paragraphTwo {}
+}

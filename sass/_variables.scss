@@ -1,25 +1,48 @@
+:root {
+    --lato: 'Lato', sans-serif;
+    --oswald: 'Oswald', sans-serif;
+    --paragraphFZmin: calc(1rem + ((1vw - 0.2em) * 0.5));
+    --h1FZmin: calc(1.375rem + ((1vw - 0.2em) * 1.525));
+    --h2FZmin: calc(1.375rem + ((1vw - 0.25em) * 1.380));
+    --h3FZmin: calc(1.375rem + ((1vw - 0.3em) * 1.130));
+    --h4FZmin: calc(1.375rem + ((1vw - 0.4em) * 0.915));
+    --paragraphFZmax: 1.5em;
+    --h1FZmax: 3.0em;
+    --h2FZmax: 2.75em;
+    --h3FZmax: 2.35em;
+    --h4FZmax: 2em;
+    --LineHeightRatioParagraph: 1.618;
+    --LineHeightRatioHeadline: 1.42;
+}
+
+
+
 @media (min-width: 18em) {
 
     p,
     i {
-        font-size: calc(1rem + ((1vw - 0.2em) * 0.5));
+        font-size: var(--paragraphFZmin);
+        line-height: calc(var(--LineHeightRatioParagraph)*var(--paragraphFZmin))
     }
 
     h1 {
-        font-size: calc(1.375rem + ((1vw - 0.2em) * 1.525));
+        font-size: var(--h1FZmin);
+        line-height: calc(var(--LineHeightRatioHeadline)*var(--h1FZmin))
     }
 
     h2 {
-        font-size: calc(1.375rem + ((1vw - 0.25em) * 1.380));
+        font-size: var(--h2FZmin);
+        line-height: calc(var(--LineHeightRatioHeadline)*var(--h2FZmin))
     }
 
     h3 {
-        font-size: calc(1.375rem + ((1vw - 0.3em) * 1.130));
+        font-size: var(--h3FZmin);
+        line-height: calc(var(--LineHeightRatioHeadline)*var(--h3FZmin))
     }
 
     h4 {
-        font-size: calc(1.375rem + ((1vw - 0.4em) * 0.915));
-
+        font-size: var(--h4FZmin);
+        line-height: calc(var(--LineHeightRatioHeadline)*var(--h4FZmin))
     }
 
 }
@@ -28,22 +51,27 @@
 
     p,
     i {
-        font-size: 1.5em;
+        font-size: var(--paragraphFZmax);
+        line-height: calc(var(--LineHeightRatioParagraph)*var(--paragraphFZmax))
     }
 
     h1 {
-        font-size: 3.0em;
+        font-size: var(--h1FZmax);
+        line-height: calc(var(--LineHeightRatioHeadline)*var(--h1FZmax))
     }
 
     h2 {
-        font-size: 2.75em;
+        font-size: var(--h2FZmax);
+        line-height: calc(var(--LineHeightRatioHeadline)*var(--h2FZmax))
     }
 
     h3 {
-        font-size: 2.35em;
+        font-size: var(--h3FZmax);
+        line-height: calc(var(--LineHeightRatioHeadline)*var(--h3FZmax))
     }
 
     h4 {
-        font-size: 2em;
+        font-size: var(--h4FZmax);
+        line-height: calc(var(--LineHeightRatioHeadline)*var(--h4FZmax))
     }
 }
