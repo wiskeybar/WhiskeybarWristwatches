@@ -12,3 +12,25 @@ button {
     text-transform: uppercase;
     box-sizing: border-box;
 }
+
+:root {
+    --lato: 'Lato', sans-serif;
+    --oswald: 'Oswald', sans-serif;
+}
+
+
+
+
+
+p,
+button {
+    font-family: var(--lato);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--oswald);
+
+}

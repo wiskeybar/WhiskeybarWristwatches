@@ -1,10 +1,4 @@
-:root {
-    --lato: 'Lato', sans-serif;
-    --oswald: 'Oswald', sans-serif;
-}
-
-
-@media (min-width: 20em) {
+@media (min-width: 18em) {
 
     p,
     i {
@@ -12,19 +6,19 @@
     }
 
     h1 {
-        font-size: calc(1.375rem + ((1vw - 0.2em) * 0.625));
+        font-size: calc(1.375rem + ((1vw - 0.2em) * 1.525));
     }
 
     h2 {
-        font-size: calc(1.375rem + ((1vw - 0.2em) * 0.580));
+        font-size: calc(1.375rem + ((1vw - 0.25em) * 1.380));
     }
 
     h3 {
-        font-size: calc(1.375rem + ((1vw - 0.2em) * 0.530));
+        font-size: calc(1.375rem + ((1vw - 0.3em) * 1.130));
     }
 
     h4 {
-        font-size: calc(1.375rem + ((1vw - 0.2em) * 0.515));
+        font-size: calc(1.375rem + ((1vw - 0.4em) * 0.915));
 
     }
 
