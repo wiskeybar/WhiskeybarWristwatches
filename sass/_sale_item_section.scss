@@ -1,0 +1,66 @@
+.watchGallery {
+    &_mainTitle {
+        text-align: center;
+    }
+
+    &_introduction {
+        text-align: center;
+        margin-bottom: 10vh;
+    }
+
+    &_gallery {
+        display: grid;
+        grid-gap: 1vw;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: 1fr;
+
+        @media (min-width: 736px) {
+            grid-template-rows: 1fr 1fr 1fr 0.3fr;
+            grid-template-columns: 1fr 1fr 1fr;
+            justify-items: center;
+
+        }
+    }
+
+    &_galleryItem {
+
+        display: none;
+        justify-self: center;
+        width: 100%;
+        border-radius: 2%;
+
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+            display: block;
+        }
+
+        @media (min-width: 736px) {
+            display: block;
+        }
+    }
+
+    &_gallerySub {
+        display: none;
+        width: 100%;
+
+        @media (min-width: 736px) {
+            display: block;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: var(--h4FZmin);
+        }
+
+    }
+
+    &_SubMinimal {
+        display: block;
+        font-size: var(--h1FZmin);
+
+
+        @media (min-width: 736px) {
+            display: none;
+        }
+    }
+}

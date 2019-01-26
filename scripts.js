@@ -5,6 +5,8 @@ const minifiedMenu = document.querySelector('.top_minified');
 const menuElements = Array.from(document.querySelectorAll('.top_minified__item'))
 const searchButtons = Array.from(document.querySelectorAll('.searchItems'))
 const searchFields = Array.from(document.querySelectorAll('.searchField'))
+const newItemsParagraphTwo = document.querySelector('.newItems_paragraphTwo');
+
 
 
 
@@ -31,10 +33,15 @@ menuOpener.addEventListener('click', () => {
 )
 
 window.addEventListener('scroll', () => {
+
     if (pageYOffset >= 150) {
         expandedMenu.classList.add('top_fixed');
-        mainNav.style.marginTop = `${expandedMenu.offsetHeight}px`;
     }
+    if (pageYOffset >= (newItemsParagraphTwo.getBoundingClientRect().height * 0.85)) {
+
+        newItemsParagraphTwo.classList.add('newItems_paragraphTwo_animated');
+    }
+
     else {
         expandedMenu.classList.remove('top_fixed');
         mainNav.style.marginTop = 0;

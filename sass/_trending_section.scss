@@ -1,0 +1,48 @@
+.trendingItems {
+    text-align: center;
+
+    &_mainHeadline {
+        margin-top: 10vh;
+    }
+
+    &_intruduction {
+        margin-bottom: 10vh;
+    }
+
+    &_container {
+
+        display: none;
+
+        @media (min-width: 736px) {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+
+
+        &__Item {
+            width: 33%;
+        }
+    }
+
+    &_showGallery {
+        display: none;
+
+        @media (max-width: 735px) {
+            display: block;
+            font-size: var(--h2FZmin);
+            margin: 0 auto;
+            border: 1px solid orangered;
+            margin-bottom: 10vh;
+        }
+
+
+    }
+
+    &_showGallery:hover {
+        color: white;
+        background-color: orangered;
+
+    }
+}

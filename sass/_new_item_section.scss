@@ -1,11 +1,14 @@
 .newItems {
     position: relative;
+    overflow: hidden;
 
     &_headline {
         text-align: center;
     }
 
-    &_mainHeadline {}
+    &_mainHeadline {
+        margin-top: 10vh;
+    }
 
 
 
@@ -103,11 +106,38 @@
         }
 
         &__seeMoreBtn:hover {
-            transform: scale(1.02)
+            transform: scale(1.02);
+            color: orangered;
+            text-decoration: underline;
+            text-underline-position: under;
         }
     }
 
-    &_secondHeadline {}
+    &_secondHeadline {
+        margin-top: 10vh;
+    }
 
-    &_paragraphTwo {}
+    &_paragraphTwo {
+        display: block;
+        max-width: 60%;
+        text-align: center;
+        transform: translateX(-200%);
+    }
+
+    &_paragraphTwo_animated {
+        animation: paragraphTwoRoller 1s ease-out forwards;
+    }
+
+    @keyframes paragraphTwoRoller {
+        0% {
+            transform: translateX(-110%);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateX(33%);
+            opacity: 1;
+
+        }
+    }
 }

@@ -64,7 +64,7 @@
 }
 
 body {
-  height: 200vh;
+  height: 400vh;
   max-width: 80vw;
   margin: 0 auto;
 }
@@ -294,20 +294,98 @@ i {
 }
 
 .top_nav__listElement:hover {
-  border-bottom: 1px solid white;
+  border-bottom: ridge 1px orangered;
   color: black;
+  letter-spacing: 2px;
   text-shadow: 1px 1px 10px orangered;
   -webkit-box-shadow: 0 0 25px inset orangered;
           box-shadow: 0 0 25px inset orangered;
   font-weight: bold;
 }
 
+.watchGallery_mainTitle {
+  text-align: center;
+}
+
+.watchGallery_introduction {
+  text-align: center;
+  margin-bottom: 10vh;
+}
+
+.watchGallery_gallery {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 1vw;
+  -ms-grid-rows: (1fr)[4];
+      grid-template-rows: repeat(4, 1fr);
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+}
+
+@media (min-width: 736px) {
+  .watchGallery_gallery {
+    -ms-grid-rows: 1fr 1fr 1fr 0.3fr;
+        grid-template-rows: 1fr 1fr 1fr 0.3fr;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+  }
+}
+
+.watchGallery_galleryItem {
+  display: none;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  width: 100%;
+  border-radius: 2%;
+}
+
+.watchGallery_galleryItem:nth-child(1), .watchGallery_galleryItem:nth-child(2), .watchGallery_galleryItem:nth-child(3) {
+  display: block;
+}
+
+@media (min-width: 736px) {
+  .watchGallery_galleryItem {
+    display: block;
+  }
+}
+
+.watchGallery_gallerySub {
+  display: none;
+  width: 100%;
+}
+
+@media (min-width: 736px) {
+  .watchGallery_gallerySub {
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: var(--h4FZmin);
+  }
+}
+
+.watchGallery_SubMinimal {
+  display: block;
+  font-size: var(--h1FZmin);
+}
+
+@media (min-width: 736px) {
+  .watchGallery_SubMinimal {
+    display: none;
+  }
+}
+
 .newItems {
   position: relative;
+  overflow: hidden;
 }
 
 .newItems_headline {
   text-align: center;
+}
+
+.newItems_mainHeadline {
+  margin-top: 10vh;
 }
 
 .newItems_paragraphOne {
@@ -429,5 +507,104 @@ i {
 .newItems_examplePicContainer__seeMoreBtn:hover {
   -webkit-transform: scale(1.02);
           transform: scale(1.02);
+  color: orangered;
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.newItems_secondHeadline {
+  margin-top: 10vh;
+}
+
+.newItems_paragraphTwo {
+  display: block;
+  max-width: 60%;
+  text-align: center;
+  -webkit-transform: translateX(-200%);
+          transform: translateX(-200%);
+}
+
+.newItems_paragraphTwo_animated {
+  -webkit-animation: paragraphTwoRoller 1s ease-out forwards;
+          animation: paragraphTwoRoller 1s ease-out forwards;
+}
+
+@-webkit-keyframes paragraphTwoRoller {
+  0% {
+    -webkit-transform: translateX(-110%);
+            transform: translateX(-110%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(33%);
+            transform: translateX(33%);
+    opacity: 1;
+  }
+}
+
+@keyframes paragraphTwoRoller {
+  0% {
+    -webkit-transform: translateX(-110%);
+            transform: translateX(-110%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(33%);
+            transform: translateX(33%);
+    opacity: 1;
+  }
+}
+
+.trendingItems {
+  text-align: center;
+}
+
+.trendingItems_mainHeadline {
+  margin-top: 10vh;
+}
+
+.trendingItems_intruduction {
+  margin-bottom: 10vh;
+}
+
+.trendingItems_container {
+  display: none;
+}
+
+@media (min-width: 736px) {
+  .trendingItems_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.trendingItems_container__Item {
+  width: 33%;
+}
+
+.trendingItems_showGallery {
+  display: none;
+}
+
+@media (max-width: 735px) {
+  .trendingItems_showGallery {
+    display: block;
+    font-size: var(--h2FZmin);
+    margin: 0 auto;
+    border: 1px solid orangered;
+    margin-bottom: 10vh;
+  }
+}
+
+.trendingItems_showGallery:hover {
+  color: white;
+  background-color: orangered;
 }
 /*# sourceMappingURL=style.css.map */
