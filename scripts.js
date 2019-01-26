@@ -6,7 +6,9 @@ const menuElements = Array.from(document.querySelectorAll('.top_minified__item')
 const searchButtons = Array.from(document.querySelectorAll('.searchItems'))
 const searchFields = Array.from(document.querySelectorAll('.searchField'))
 
-const openerClose = () => {
+
+
+const menuOpenerClose = () => {
     minifiedMenu.classList.remove('top_maximized');
     menuOpener.innerHTML = "<i class='fas fa-bars'>";
     menuOpener.style.color = "black";
@@ -23,7 +25,7 @@ menuOpener.addEventListener('click', () => {
         menuOpener.style.color = "white";
     }
     else {
-        openerClose()
+        menuOpenerClose()
     }
 }
 )
@@ -41,29 +43,33 @@ window.addEventListener('scroll', () => {
 
 window.addEventListener('click', (e) => {
     if (e.clientY > minifiedMenu.offsetHeight) {
-        openerClose()
+        menuOpenerClose()
     }
 
 
 })
 
-searchButtons[0].addEventListener('click', () => {
-    if (!(searchFields[0].classList.contains('searchFieldActive'))) {
-        searchFields[0].classList.add('searchFieldActive')
+searchButtons[0].addEventListener('click', (e) => {
+    const searchButtonIndex = searchButtons.indexOf(e.target)
+
+    if (!(searchFields[searchButtonIndex].classList.contains('searchFieldActive'))) {
+        searchFields[searchButtonIndex].classList.add('searchFieldActive')
     }
     else {
-        searchInputClose(0)
+        searchInputClose(searchButtonIndex)
     }
 })
 
-searchButtons[1].addEventListener('click', () => {
-    if (!(searchFields[1].classList.contains('searchFieldActive'))) {
-        searchFields[1].classList.add('searchFieldActive')
-        searchButtons[1].innerHTML = "  <i class='fas fa-search'></i> Close Search"
+searchButtons[1].addEventListener('click', (e) => {
+    const searchButtonIndex = searchButtons.indexOf(e.target)
+
+    if (!(searchFields[searchButtonIndex].classList.contains('searchFieldActive'))) {
+        searchFields[searchButtonIndex].classList.add('searchFieldActive')
+        searchButtons[searchButtonIndex].innerHTML = "  <i class='fas fa-search'></i> Close Search"
     }
     else {
-        searchInputClose(1)
-        searchButtons[1].innerHTML = "  <i class='fas fa-search'></i> Search for items"
+        searchInputClose(searchButtonIndex)
+        searchButtons[searchButtonIndex].innerHTML = "  <i class='fas fa-search'></i> Search for items"
 
     }
 })

@@ -38,7 +38,7 @@
 
 body {
   height: 200vh;
-  max-width: 1620px;
+  max-width: 80vw;
   margin: 0 auto;
 }
 
@@ -68,22 +68,39 @@ h4 {
   font-family: var(--oswald);
 }
 
+i {
+  pointer-events: none;
+}
+
 .top {
   position: relative;
 }
 
 .top_expanded {
   display: none;
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  width: 80%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: 0.3s all linear;
+  transition: 0.3s all linear;
 }
 
 .top_expanded__item {
   padding: 10px;
   background-color: white;
   z-index: 2;
+  border-radius: 5%;
 }
 
 .top_expanded__item:nth-child(1) {
   margin-right: auto;
+}
+
+.top_expanded__item:hover {
+  color: gray;
 }
 
 .top_expanded .searchField {
@@ -104,6 +121,9 @@ h4 {
 
 .top_expanded__companyName {
   text-align: center;
+  margin: 0;
+  z-index: 1;
+  background-color: #fff;
 }
 
 @media (min-width: 736px) {
@@ -117,13 +137,7 @@ h4 {
 }
 
 .top_fixed {
-  position: fixed;
-  background-color: white;
-  top: 5%;
-  left: 50%;
-  width: 80%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  width: 70%;
   background-color: rgba(128, 128, 128, 0.2);
 }
 
@@ -217,7 +231,7 @@ h4 {
 
 .top_nav__image {
   position: absolute;
-  max-width: 100%;
+  max-width: 99%;
   z-index: -1;
   top: 50%;
   left: 50%;
