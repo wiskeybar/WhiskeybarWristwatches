@@ -16,7 +16,22 @@
     <section class="top">
         <h1 class="top_expanded__companyName">Wristwaches</h1>
         <div class="top_expanded">
-            <button title="Choose your currency" class="top_expanded__item convertMoney"> <i class="fas fa-dollar-sign"></i></button>
+            <div class="top_expanded__item convertMoney">
+                <button title="Choose your currency - dollars" data-btnKey='0' class="convertMoney_dollars convertMoneyBtnTop visible">
+                    <i class="fas fa-dollar-sign "></i>
+                </button>
+                <button title="Choose your currency - rubles" data-btnKey='1' class="convertMoney_rubels convertMoneyBtnTop invisible">
+                    <i class="fas fa-ruble-sign "></i>
+                </button>
+
+                <button title="Choose your currency - yens" data-btnKey='2' class="convertMoney_yens convertMoneyBtnTop invisible">
+                    <i class="fas fa-yen-sign "></i>
+                </button>
+                <button title="Choose your currency -euros" data-btnKey='3' class="convertMoney_euros convertMoneyBtnTop invisible">
+                    <i class="fas fa-euro-sign "></i>
+                </button>
+            </div>
+
             <input type="text" placeholder="What are you searching for?" class="top_expanded__item searchField">
             <button title="Search for items" class="top_expanded__item searchItems"> <i class="fas fa-search"></i></button>
 
@@ -34,9 +49,27 @@
             <button title="Search for items" class="top_minified__item searchItems">
                 <i class="fas fa-search"></i> Search for items
             </button>
-            <button title="Choose your currency" class="top_minified__item convertMoney">
-                <i class="fas fa-dollar-sign"></i> Change your currency
-            </button>
+
+            <div class="top_minified__item convertMoney">
+                <button title="Choose your currency" class="convertMoneyBtnMin visable" data-btnKey='0'>
+                    <i class="fas fa-dollar-sign"></i>
+                </button>
+                <button title="Choose your currency" class="convertMoneyBtnMin invisable" data-btnKey='1'>
+
+                    <i class="fas fa-ruble-sign "></i>
+                </button>
+                <button title="Choose your currency" class="convertMoneyBtnMin invisable" data-btnKey='2'>
+                    <i class="fas fa-yen-sign "></i>
+                </button>
+                <button title="Choose your currency" class="convertMoneyBtnMin invisable" data-btnKey='3'>
+                    <i class="fas fa-euro-sign "> </i>
+                </button>
+
+
+                <button title="Choose your currency" class="convertMoneyBtnTxt ">your currency</button>
+
+            </div>
+
 
             <button title="Locate my nearest shop" class="top_minified__item locateMe">
                 <i class="fas fa-map-marker-alt"></i> Locate nearest shop
@@ -55,8 +88,8 @@
             <button class="top_nav__listElement">Unisex</button>
             <button class="top_nav__listElement">Straps</button>
             <button class="top_nav__listElement">Buckles</button>
-            <img class='top_nav__image' src="img/1920cover.jpg" alt="header image" sizes="(min-width:1441px) 1920px, (max-width:1440px) 1440px, (max-width:1020px) 1020px, (max-width:720px) 720px, (min-width:320px) 320px"
-                srcset="img/1920cover.jpg 1920w, img/1440cover.jpg 1440w, img/1020cover.jpg 1020w, img/720cover.jpg 720w, img/320cover.jpg 320w">
+            <img class='top_nav__image' src="img/watches/1920/1920cover.JPG" alt="header image" sizes="(min-width:1441px) 1920px, (max-width:1440px) 1440px, (max-width:1020px) 1020px, (max-width:720px) 720px, (min-width:320px) 320px"
+                srcset="img/watches/1920/1920cover.JPG 1920w, img/watches/1440/1440cover.JPG 1440w, img/watches/1020/1020cover.JPG 1020w, img/watches/720/720cover.JPG 720w, img/watches/320/320cover.JPG 320w">
 
         </div>
     </section>
@@ -67,27 +100,25 @@
             <p class="newItems_paragraphOne"> Browse our stock for new exciting items
             </p>
             <div class='newItems_examplePicContainer'>
-                <img class='newItems_examplePicContainer__examplePic examplePic1' src="img/watches/720.jpg" alt="header image"
-                    sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720.jpg 720w, img/watches/320.jpg 320w">
+                <img class='newItems_examplePicContainer__examplePic examplePic1' src="img/watches/720/720a.jpg" alt="header image"
+                    sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720/720a.jpg 720w, img/watches/320/320a.jpg 320w">
 
                 <button class="newItems_examplePicContainer__seeMoreBtn">show more</button>
 
-                <img class='newItems_examplePicContainer__examplePic examplePic2' src="img/watches/720h.jpg" alt="header image"
-                    sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720h.jpg 720w, img/watches/320h.jpg 320w">
+                <img class='newItems_examplePicContainer__examplePic examplePic2' src="img/watches/720/720b.jpg" alt="header image"
+                    sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720/720b.jpg 720w, img/watches/320/320b.jpg 320w">
 
                 <button class="newItems_examplePicContainer__seeMoreBtn">show more</button>
 
-                <img class='newItems_examplePicContainer__examplePic examplePic3' src="img/watches/720.jpg" alt="header image"
-                    sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720.jpg 720w, img/watches/320.jpg 320w">
+                <img class='newItems_examplePicContainer__examplePic examplePic3' src="img/watches/720/720c.jpg" alt="header image"
+                    sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720/720c.jpg 720w, img/watches/320/320c.jpg 320w">
 
-                <img class='newItems_examplePicContainer__examplePic examplePic3' src="img/watches/720h.jpg" alt="header image"
-                    sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720h.jpg 720w, img/watches/320h.jpg 320w">
+                <img class='newItems_examplePicContainer__examplePic examplePic3' src="img/watches/720/720d.jpg" alt="header image"
+                    sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720/720d.jpg 720w, img/watches/320/320d.jpg 320w">
 
             </div>
             <h2 class="newItems_secondHeadline newItems_headline">Time is of the essence
-                <!-- <div>
-                    <img src="" alt="" srcset="" sizes="">
-                </div> -->
+
             </h2>
             <p class="newItems_paragraphTwo"> And if essence is what you are looking for - well, your in the right
                 place. At Wristwatches&copy; we know everything about time. And it just so happens, that we also love
@@ -103,32 +134,33 @@
                 going.</p>
             <div class="watchGallery_gallery saleItems">
 
-                <img class='watchGallery_galleryItem gallery1' src="img/watches/720.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
-                    srcset="img/watches/720.jpg 720w, img/watches/320.jpg 320w">
+                <img class='watchGallery_galleryItem ' src="img/watches/720/720a.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
+                    srcset="img/watches/720/720a.jpg 720w, img/watches/320/320a.jpg 320w">
 
-                <img class='watchGallery_galleryItem gallery1 ' src="img/watches/720.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
-                    srcset="img/watches/720.jpg 720w, img/watches/320.jpg 320w">
+                <img class='watchGallery_galleryItem ' src="img/watches/720/720b.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
+                    srcset="img/watches/720/720b.jpg 720w, img/watches/320/320b.jpg 320w">
 
-                <img class='watchGallery_galleryItem gallery1' src="img/watches/720.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
-                    srcset="img/watches/720.jpg 720w, img/watches/320.jpg 320w">
+                <img class='watchGallery_galleryItem ' src="img/watches/720/720e.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
+                    srcset="img/watches/720/720e.jpg 720w, img/watches/320/320e.jpg 320w">
 
-                <img class='watchGallery_galleryItem gallery1' src="img/watches/720.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
-                    srcset="img/watches/720.jpg 720w, img/watches/320.jpg 320w">
+                <img class='watchGallery_galleryItem ' src="img/watches/720/720d.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
+                    srcset="img/watches/720/720d.jpg 720w, img/watches/320/320d.jpg 320w">
 
-                <img class='watchGallery_galleryItem gallery1' src="img/watches/720.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
-                    srcset="img/watches/720.jpg 720w, img/watches/320.jpg 320w">
+                <img class='watchGallery_galleryItem ' src="img/watches/720/720c.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
+                    srcset="img/watches/720/720c.jpg 720w, img/watches/320/320c.jpg 320w">
 
-                <img class='watchGallery_galleryItem gallery1' src="img/watches/720.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
-                    srcset="img/watches/720.jpg 720w, img/watches/320.jpg 320w">
+                <img class='watchGallery_galleryItem ' src="img/watches/720/720f.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
+                    srcset="img/watches/720/720f.jpg 720w, img/watches/320/320f.jpg 320w">
 
-                <img class='watchGallery_galleryItem gallery1' src="img/watches/720.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
-                    srcset="img/watches/720.jpg 720w, img/watches/320.jpg 320w">
 
-                <img class='watchGallery_galleryItem gallery1' src="img/watches/720.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
-                    srcset="img/watches/720.jpg 720w, img/watches/320.jpg 320w">
+                <img class='watchGallery_galleryItem ' src="img/watches/720/720g.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
+                    srcset="img/watches/720/720g.jpg 720w, img/watches/320/320g.jpg 320w">
 
-                <img class='watchGallery_galleryItem gallery1' src="img/watches/720.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
-                    srcset="img/watches/720.jpg 720w, img/watches/320.jpg 320w">
+                <img class='watchGallery_galleryItem ' src="img/watches/720/720h.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
+                    srcset="img/watches/720/720h.jpg 720w, img/watches/320/320h.jpg 320w">
+
+                <img class='watchGallery_galleryItem ' src="img/watches/720/720i.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
+                    srcset="img/watches/720/720i.jpg 720w, img/watches/320/320i.jpg 320w">
                 <button class="watchGallery_gallerySub">i</button>
                 <button class="watchGallery_gallerySub">want</button>
                 <button class="watchGallery_gallerySub">more</button>
@@ -146,15 +178,21 @@
             <p class="trendingItems_intruduction">We know, that it's all about keeeping it oryginal and authentic, but
                 we also get it, that we all need some inspiration for our choices. Below you'll find the hottest pieces
                 (and it just so happens we have them in hot prices!)</p>
-            <div class="trendingItems_container">
-                <img class='trendingItems_container__Item saleItem' src="img/watches/720.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
-                    srcset="img/watches/720.jpg 720w, img/watches/320.jpg 320w">
-                <img class='trendingItems_container__Item saleItem' src="img/watches/720.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
-                    srcset="img/watches/720.jpg 720w, img/watches/320.jpg 320w">
-                <img class='trendingItems_container__Item saleItem' src="img/watches/720.jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
-                    srcset="img/watches/720.jpg 720w, img/watches/320.jpg 320w">
-            </div>
             <button class='trendingItems_showGallery'>See what's trending</button>
+
+            <div class="trendingItems_container">
+                <div class='trendingItems_container__Item'> <img class=' saleItem' src="img/watches/720/720e.jpg" alt="header image"
+                        sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720/720e.jpg 720w, img/watches/320/320e.jpg 320w">
+                </div>
+
+                <div class='trendingItems_container__Item'> <img class=' saleItem' src="img/watches/720/720a.jpg" alt="header image"
+                        sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720/720a.jpg 720w, img/watches/320/320a.jpg 320w"></div>
+
+                <div class='trendingItems_container__Item'> <img class=' saleItem' src="img/watches/720/720d.jpg" alt="header image"
+                        sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720/720d.jpg 720w, img/watches/320/320d.jpg 320w">
+                </div>
+
+            </div>
             <p class="trendingItems_outro"> Get your items while we still got them, we won't be making new ones anytime
                 soon!</p>
         </div>
