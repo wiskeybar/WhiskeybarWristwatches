@@ -16,6 +16,11 @@ const inputSelect = document.querySelector('.inputSelect');
 const formInput = document.querySelector('.formInput');
 const submitFormBtn = document.querySelector('.submitFormBtn');
 const inputRadioLabel = document.querySelector('.inputRadioLabel');
+const modalContainer = document.querySelector('.modal_container');
+const modal = document.createElement('img')
+
+const galleryItems = Array.from(document.querySelectorAll('.watchGallery_galleryItem'))
+
 
 
 
@@ -172,4 +177,35 @@ submitFormBtn.addEventListener('click', (e) => {
         alert("No backend on the site, sorry. It ain't much, but it's honest work :)")
     }
 
+})
+
+
+
+
+
+galleryItems.forEach(item => item.addEventListener('click', (e) => {
+
+    let src = e.target.src
+    let newSrc = src.replace(/720/gi, 1920)
+
+    modal.className = "modalPopup";
+    modal.src = newSrc
+    modal.style.maxWidth = "80%";
+    modal.style.maxHeight = "80%";
+    modal.style.margin = "0 auto"
+
+    modalContainer.appendChild(modal);
+
+}))
+
+modalContainer.addEventListener('click', (e) => {
+    console.log(e.clientX)
+    console.log(e.target.getBoundingClientRect())
+    if (e.clientX > (((e.target.getBoundingClientRect().width / 2) + e.target.getBoundingClientRect().x))) {
+        console.log('prawa')
+    }
+    else {
+        console.log('lewa');
+
+    }
 })
