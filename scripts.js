@@ -12,7 +12,7 @@ const convertMoneyBtnsTop = Array.from(document.querySelectorAll('.convertMoneyB
 const convertMoneyBtnMin = Array.from(document.querySelectorAll('.convertMoneyBtnMin'))
 const convertMoneyBtnTxt = document.querySelector('.convertMoneyBtnTxt');
 const emailInput = document.querySelector('.emailInput');
-const inputradios = Array.from(document.querySelectorAll('.inputradio'))
+const inputSelect = document.querySelector('.inputSelect');
 const formInput = document.querySelector('.formInput');
 const submitFormBtn = document.querySelector('.submitFormBtn');
 const inputRadioLabel = document.querySelector('.inputRadioLabel');
@@ -148,27 +148,28 @@ trendingItemsGalleryBtn.addEventListener('click', () => {
 submitFormBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    if ((inputradios.filter(inputRadio => inputRadio.checked).length) === 0) {
-
-        inputRadioLabel.style.color = "orangered";
-        const bcgremove = () => { inputRadioLabel.style.color = "black"; };
-        setTimeout(bcgremove, 1000);
-        return
-    }
-
     if (emailInput.value.length < 5 || !(emailInput.value.includes("@"))) {
-        emailInput.style.color = "orangered";
-        const bcgremove = () => { emailInput.style.color = "black"; };
+        emailInput.style.border = "2px solid orangered";
+        const bcgremove = () => { emailInput.style.border = "1px solid gray"; };
+        setTimeout(bcgremove, 1000);
+        return
+    }
+    else if (!(inputSelect.value)) {
+
+        inputSelect.style.color = "orangered";
+        const bcgremove = () => { inputSelect.style.color = "black"; };
+        setTimeout(bcgremove, 1000);
+        return
+    }
+    else if (formInput.value.length < 20) {
+        formInput.style.border = "2px solid orangered";
+        const bcgremove = () => { formInput.style.border = "1px solid gray"; };
         setTimeout(bcgremove, 1000);
         return
     }
 
-
-    if (formInput.value.length < 20) {
-        formInput.style.color = "orangered";
-        const bcgremove = () => { formInput.style.color = "black"; };
-        setTimeout(bcgremove, 1000);
-        return
+    else {
+        alert("No backend on the site, sorry. It ain't much, but it's honest work :)")
     }
 
 })
