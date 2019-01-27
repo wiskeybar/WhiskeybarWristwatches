@@ -1,0 +1,33 @@
+.contact {
+    width: 70vw;
+    text-align: center;
+    margin: 0 auto;
+
+    &_form {
+        margin: 0 auto;
+        font-family: var(--lato);
+
+        @media (min-width: 735px) {
+            width: 50vw;
+        }
+
+        &__field {
+            :focus {
+                box-shadow: 0 0 5px red;
+
+
+            }
+
+            legend {
+                font-size: var(--h4FZmin);
+            }
+
+            .inputradio {
+                margin: 10px 5px;
+            }
+
+        }
+    }
+
+
+}

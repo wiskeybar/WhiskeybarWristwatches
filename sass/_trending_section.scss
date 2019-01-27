@@ -68,13 +68,10 @@
             margin-bottom: 10vh;
         }
 
+        &:hover {
+            color: white;
+            background-color: orangered;
 
-
-    }
-
-    &_showGallery:hover {
-        color: white;
-        background-color: orangered;
-
+        }
     }
 }

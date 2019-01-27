@@ -719,4 +719,34 @@ i {
   color: white;
   background-color: orangered;
 }
+
+.contact {
+  width: 70vw;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.contact_form {
+  margin: 0 auto;
+  font-family: var(--lato);
+}
+
+@media (min-width: 735px) {
+  .contact_form {
+    width: 50vw;
+  }
+}
+
+.contact_form__field :focus {
+  -webkit-box-shadow: 0 0 5px red;
+          box-shadow: 0 0 5px red;
+}
+
+.contact_form__field legend {
+  font-size: var(--h4FZmin);
+}
+
+.contact_form__field .inputradio {
+  margin: 10px 5px;
+}
 /*# sourceMappingURL=style.css.map */

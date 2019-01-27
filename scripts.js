@@ -11,6 +11,26 @@ const trendingItemsGalleryBtn = document.querySelector('.trendingItems_showGalle
 const convertMoneyBtnsTop = Array.from(document.querySelectorAll('.convertMoneyBtnTop'))
 const convertMoneyBtnMin = Array.from(document.querySelectorAll('.convertMoneyBtnMin'))
 const convertMoneyBtnTxt = document.querySelector('.convertMoneyBtnTxt');
+const emailInput = document.querySelector('.emailInput');
+const inputradios = Array.from(document.querySelectorAll('.inputradio'))
+const formInput = document.querySelector('.formInput');
+const submitFormBtn = document.querySelector('.submitFormBtn');
+const inputRadioLabel = document.querySelector('.inputRadioLabel');
+
+
+
+const menuOpenerClose = () => {
+    minifiedMenu.classList.remove('top_maximized');
+    menuOpener.innerHTML = "<i class='fas fa-bars'>";
+    menuOpener.style.color = "black";
+    menuOpener.style.left = "1%";
+
+
+}
+const searchInputClose = (i) => {
+    searchFields[i].classList.remove('searchFieldActive')
+}
+
 
 convertMoneyBtnsTop.forEach(convertBtn => {
     convertBtn.addEventListener('click', (e) => {
@@ -29,8 +49,6 @@ convertMoneyBtnsTop.forEach(convertBtn => {
 
     })
 })
-
-
 convertMoneyBtnMin.forEach(convertBtn => {
     convertBtn.addEventListener('click', (e) => {
         convertMoneyBtnMin.forEach(btnMin => btnMin.style.color = 'white');
@@ -50,25 +68,12 @@ convertMoneyBtnTxt.addEventListener('click', () => {
     setTimeout(shadowRemove, 1000)
 })
 
-
-
-
-
-const menuOpenerClose = () => {
-    minifiedMenu.classList.remove('top_maximized');
-    menuOpener.innerHTML = "<i class='fas fa-bars'>";
-    menuOpener.style.color = "black";
-
-}
-const searchInputClose = (i) => {
-    searchFields[i].classList.remove('searchFieldActive')
-}
-
 menuOpener.addEventListener('click', () => {
     if (!(minifiedMenu.classList.contains('top_maximized'))) {
         minifiedMenu.classList.add('top_maximized');
         menuOpener.innerHTML = "<i class='fas fa-times'>";
         menuOpener.style.color = "white";
+        menuOpener.style.left = "95%";
     }
     else {
         menuOpenerClose()
@@ -125,8 +130,6 @@ searchButtons[1].addEventListener('click', (e) => {
     }
 })
 
-
-
 trendingItemsGalleryBtn.addEventListener('click', () => {
     if (!(trendingItemsContainer.classList.contains('trendingItems_container_active'))) {
         trendingItemsContainer.classList.add('trendingItems_container_active');
@@ -139,4 +142,33 @@ trendingItemsGalleryBtn.addEventListener('click', () => {
         trendingItemsGalleryBtn.textContent = "see what's trending"
 
     }
+})
+
+
+submitFormBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if ((inputradios.filter(inputRadio => inputRadio.checked).length) === 0) {
+
+        inputRadioLabel.style.color = "orangered";
+        const bcgremove = () => { inputRadioLabel.style.color = "black"; };
+        setTimeout(bcgremove, 1000);
+        return
+    }
+
+    if (emailInput.value.length < 5 || !(emailInput.value.includes("@"))) {
+        emailInput.style.color = "orangered";
+        const bcgremove = () => { emailInput.style.color = "black"; };
+        setTimeout(bcgremove, 1000);
+        return
+    }
+
+
+    if (formInput.value.length < 20) {
+        formInput.style.color = "orangered";
+        const bcgremove = () => { formInput.style.color = "black"; };
+        setTimeout(bcgremove, 1000);
+        return
+    }
+
 })
