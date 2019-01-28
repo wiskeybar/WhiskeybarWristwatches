@@ -1,10 +1,48 @@
-.modalPopup {
-    position: fixed;
-    left: 10%;
-    right: 10%;
-    top: 10%;
-    bottom: 10%;
-    border: 30px solid white;
-    box-shadow: 0 0 40px black;
-    box-sizing: border-box;
+.blurred {
+    width: 100%;
+    height: 100%;
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+.modal_container {
+
+    .modalPopup {
+
+        position: fixed;
+        left: 10%;
+        right: 10%;
+        top: 10%;
+        bottom: 10%;
+        border: 30px solid white;
+        box-shadow: 0 0 40px black;
+        box-sizing: border-box;
+
+
+    }
+
+    .modalClose {
+        position: fixed;
+        top: 40%;
+        padding: 3px 10px;
+        right: -10%;
+        background-color: rgba(255, 255, 255, 0.692);
+        transform: rotate(-90deg) translateY(-50%);
+        cursor: pointer;
+        box-shadow: 0 0 5px inset black;
+
+
+
+
+        @media (min-width: 915px) {
+            right: 0;
+        }
+
+        @media (orientation: portrait) {
+            transform: translateX(50%);
+            right: 50%;
+            top: 80%;
+            background-color: white;
+        }
+    }
 }

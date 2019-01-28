@@ -17,9 +17,11 @@ const formInput = document.querySelector('.formInput');
 const submitFormBtn = document.querySelector('.submitFormBtn');
 const inputRadioLabel = document.querySelector('.inputRadioLabel');
 const modalContainer = document.querySelector('.modal_container');
-const modal = document.createElement('img')
+const modal = document.createElement('img');
+const modalClose = document.createElement('div');
+const wrapper = document.querySelector('.wrapper');
+const galleryItems = Array.from(document.querySelectorAll('.watchGallery_galleryItem'));
 
-const galleryItems = Array.from(document.querySelectorAll('.watchGallery_galleryItem'))
 
 
 
@@ -181,10 +183,7 @@ submitFormBtn.addEventListener('click', (e) => {
 
 
 
-
-
-galleryItems.forEach(item => item.addEventListener('click', (e) => {
-
+const creator = (e) => {
     let src = e.target.src
     let newSrc = src.replace(/720/gi, 1920)
 
@@ -193,19 +192,48 @@ galleryItems.forEach(item => item.addEventListener('click', (e) => {
     modal.style.maxWidth = "80%";
     modal.style.maxHeight = "80%";
     modal.style.margin = "0 auto"
+    modalClose.className = "modalClose"
+    modalClose.innerHTML = "<p> CLOSE GALLERY </p>";
+    wrapper.classList.add('blurred')
+
 
     modalContainer.appendChild(modal);
+    modalContainer.appendChild(modalClose);
 
-}))
+}
+
+
+galleryItems.forEach(item => item.addEventListener('click', e => { creator(e) }))
 
 modalContainer.addEventListener('click', (e) => {
-    console.log(e.clientX)
-    console.log(e.target.getBoundingClientRect())
+    let modalnumber = modal.src.lastIndexOf(modal.src.charAt(modal.src.length - 6));
+    let newSrcRight = Number(modal.src.charAt(modal.src.length - 6)) + 1;
+    let newSrcLeft = Number(modal.src.charAt(modal.src.length - 6)) - 1;
     if (e.clientX > (((e.target.getBoundingClientRect().width / 2) + e.target.getBoundingClientRect().x))) {
-        console.log('prawa')
+        if (Number(modal.src.charAt(modal.src.length - 6))
+            !== galleryItems.length) {
+            const replacer = (indexRemove, newSrcRight) => {
+                modal.src = modal.src.substr(0, indexRemove) + newSrcRight + modal.src.substr((indexRemove + 1));
+            };
+            replacer(modalnumber, newSrcRight)
+        }
     }
     else {
-        console.log('lewa');
+        if (Number(modal.src.charAt(modal.src.length - 6))
+            !== 1) {
+            const replacer = (indexRemove, newSrcLeft) => {
+                modal.src = modal.src.substr(0, indexRemove) + newSrcLeft + modal.src.substr((indexRemove + 1));
+            };
+            replacer(modalnumber, newSrcLeft)
+        }
 
     }
+
+});
+
+modalClose.addEventListener('click', () => {
+    modalContainer.removeChild(modal);
+    modalContainer.removeChild(modalClose);
+    wrapper.classList.remove('blurred')
 })
+
