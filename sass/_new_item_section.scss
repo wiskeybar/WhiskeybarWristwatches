@@ -38,14 +38,23 @@
         }
 
 
-
         &__examplePic {
+            position: relative;
+            justify-self: center;
             max-width: 75%;
-            filter: grayscale(100%);
-            transition: 0.3s linear all;
             align-self: center;
             border-radius: 3%;
-            justify-self: center;
+            filter: grayscale(100%);
+            transition: 0.3s linear all;
+            overflow: hidden;
+
+            .innerPic {
+                max-width: 100%;
+            }
+
+
+
+
         }
 
         &__examplePic:nth-of-type(1) {
@@ -75,12 +84,21 @@
         }
 
         &__examplePic:hover {
-            left: 50%;
-            top: 50%;
             filter: grayscale(0);
-            z-index: 4;
             transform: scale(1.1)
         }
+
+
+
+        &__examplePic:hover .newItems_add {
+            animation: pulse 8s infinite;
+            bottom: 5%;
+        }
+
+        &__examplePic:hover .newItems_price {
+            bottom: 5%;
+        }
+
 
 
 

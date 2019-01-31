@@ -1,0 +1,122 @@
+.newItems_add {
+    position: absolute;
+    right: 5%;
+    bottom: -100%;
+    transition: 0.25s linear all;
+    color: orangered;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    padding: 0;
+
+    @media (max-width: 735px) {
+        right: 15%;
+    }
+}
+
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 orangered;
+    }
+
+    20% {
+        box-shadow: 0 0 0 0 orangered
+    }
+
+    30% {
+        box-shadow: 0 0 0 3px orangered
+    }
+
+    40% {
+        box-shadow: 0 0 0 0 orangered;
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 orangered
+    }
+}
+
+.newItems_price {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -100%;
+    transition: 0.25s linear all;
+    color: orangered;
+    border-radius: 50%;
+    padding: 0;
+}
+
+.basket,
+.basket_minified {
+    display: none;
+    grid-template-columns: 1fr;
+    height: min-content;
+    grid-gap: 5px;
+    min-height: 50px;
+}
+
+.basket_open,
+.basket_minified_open {
+    display: grid;
+}
+
+.basket {
+    height: auto;
+    position: fixed;
+    top: 10%;
+    right: 10%;
+    left: 10%;
+    z-index: 5;
+    background-color: white;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+
+    @media (max-width: 735px) {
+        display: none;
+    }
+
+}
+
+.basket_minified {
+    display: none;
+
+    @media (max-width: 735px) {
+        display: grid;
+        max-height: 30vh;
+
+
+    }
+}
+
+.basketImage {
+    height: 100%;
+    width: auto;
+}
+
+.basketPrice {
+    flex-basis: 15%
+}
+
+.basketDescription {
+    margin-left: 15px;
+    flex-basis: 25%
+}
+
+.basketQuantity {
+    align-self: center;
+}
+
+.basketSum {}
+
+.basketItemMaximized {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+
+    @media(max-width: 735px) {}
+
+}

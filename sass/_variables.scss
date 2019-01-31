@@ -6,11 +6,13 @@
     --h2FZmin: calc(1.375rem + ((1vw - 0.25em) * 1.380));
     --h3FZmin: calc(1.375rem + ((1vw - 0.3em) * 1.130));
     --h4FZmin: calc(1.375rem + ((1vw - 0.4em) * 0.915));
+    --h5FZmin: calc(1.375rem + ((1vw - 0.4em) * 0.715));
     --paragraphFZmax: 1.5em;
     --h1FZmax: 3.0em;
     --h2FZmax: 2.75em;
     --h3FZmax: 2.35em;
     --h4FZmax: 2em;
+    --h5FZmax: 1.75em;
     --LineHeightRatioParagraph: 1.618;
     --LineHeightRatioHeadline: 1.42;
     scroll-behavior: smooth;
@@ -47,6 +49,11 @@
         line-height: calc(var(--LineHeightRatioHeadline)*var(--h4FZmin))
     }
 
+    h5 {
+        font-size: var(--h5FZmin);
+        line-height: calc(var(--LineHeightRatioHeadline)*var(--h5FZmin))
+    }
+
 }
 
 @media (min-width: 120em) {
@@ -75,5 +82,12 @@
     h4 {
         font-size: var(--h4FZmax);
         line-height: calc(var(--LineHeightRatioHeadline)*var(--h4FZmax))
+    }
+
+    h5 {
+        h5 {
+            font-size: var(--h5FZmax);
+            line-height: calc(var(--LineHeightRatioHeadline)*var(--h5FZmax))
+        }
     }
 }

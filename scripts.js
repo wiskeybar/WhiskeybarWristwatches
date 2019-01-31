@@ -21,11 +21,38 @@ const modal = document.createElement('img');
 const modalClose = document.createElement('div');
 const wrapper = document.querySelector('.wrapper');
 const galleryItems = Array.from(document.querySelectorAll('.watchGallery_galleryItem'));
+const seeMoreBtn = Array.from(document.querySelectorAll('.newItems_examplePicContainer__seeMoreBtn'));
+const watchGallerySub = Array.from(document.querySelectorAll('.watchGallery_gallerySub'));
+const shoppingBag = Array.from(document.querySelectorAll('.shoppingBag'));
+const basket = document.querySelector('.basket');
+const basketMinified = document.querySelector('.basket_minified');
+const addNewItemBtns = Array.from(document.querySelectorAll('.newItems_add'));
 
 
 
 
 
+
+
+
+const modalCreator = (e) => {
+    let src = e.target.src
+    let newSrc = src.replace(/720/gi, 1920)
+
+    modal.className = "modalPopup";
+    modal.src = newSrc
+    modal.style.maxWidth = "80%";
+    modal.style.maxHeight = "80%";
+    modal.style.margin = "0 auto"
+    wrapper.classList.add('blurred')
+
+
+    modalContainer.appendChild(modal);
+    modalClose.className = "modalClose"
+    modalClose.innerHTML = "<p> CLOSE GALLERY </p>";
+    modalContainer.appendChild(modalClose);
+
+}
 const menuOpenerClose = () => {
     minifiedMenu.classList.remove('top_maximized');
     menuOpener.innerHTML = "<i class='fas fa-bars'>";
@@ -37,7 +64,6 @@ const menuOpenerClose = () => {
 const searchInputClose = (i) => {
     searchFields[i].classList.remove('searchFieldActive')
 }
-
 
 convertMoneyBtnsTop.forEach(convertBtn => {
     convertBtn.addEventListener('click', (e) => {
@@ -144,7 +170,6 @@ trendingItemsGalleryBtn.addEventListener('click', () => {
         trendingItemsGalleryBtn.textContent = "close"
     }
     else if (trendingItemsContainer.classList.contains('trendingItems_container_active')) {
-        console.log('nie ma')
         trendingItemsContainer.classList.remove('trendingItems_container_active')
         trendingItemsGalleryBtn.textContent = "see what's trending"
 
@@ -181,29 +206,7 @@ submitFormBtn.addEventListener('click', (e) => {
 
 })
 
-
-
-const creator = (e) => {
-    let src = e.target.src
-    let newSrc = src.replace(/720/gi, 1920)
-
-    modal.className = "modalPopup";
-    modal.src = newSrc
-    modal.style.maxWidth = "80%";
-    modal.style.maxHeight = "80%";
-    modal.style.margin = "0 auto"
-    modalClose.className = "modalClose"
-    modalClose.innerHTML = "<p> CLOSE GALLERY </p>";
-    wrapper.classList.add('blurred')
-
-
-    modalContainer.appendChild(modal);
-    modalContainer.appendChild(modalClose);
-
-}
-
-
-galleryItems.forEach(item => item.addEventListener('click', e => { creator(e) }))
+galleryItems.forEach(item => item.addEventListener('click', e => { modalCreator(e) }))
 
 modalContainer.addEventListener('click', (e) => {
     let modalnumber = modal.src.lastIndexOf(modal.src.charAt(modal.src.length - 6));
@@ -236,4 +239,121 @@ modalClose.addEventListener('click', () => {
     modalContainer.removeChild(modalClose);
     wrapper.classList.remove('blurred')
 })
+
+seeMoreBtn.forEach(btn => btn.addEventListener('click', () => { window.scrollTo(0, (galleryItems[0].offsetTop * 0.95)) }))
+watchGallerySub.forEach(btn => btn.addEventListener('click', () => { window.scrollTo(0, (trendingItemsContainer.offsetTop * 0.95)) }))
+
+
+class Basket {
+
+    addToBasket(path, price, description) {
+        const itemMaximized = document.createElement('div');
+        const itemMinified = document.createElement('div');
+
+        const img = document.createElement('img');
+        const itemPrice = document.createElement('p')
+
+        const itemDescription = document.createElement('p');
+        const quantity = document.createElement('input');
+
+        const imgMin = document.createElement('img');
+        const itemDescriptionMin = document.createElement('p');
+        const itemPriceMin = document.createElement('p')
+        const quantityMin = document.createElement('input');
+
+
+        itemMaximized.dataName = description
+
+        itemMaximized.className = "basketItemMaximized";
+        itemMinified.className = "basketItemMinified"
+        img.className = "basketImage";
+        itemDescription.className = "basketDescription";
+        quantity.className = "basketQuantity";
+        quantity.type = "number"
+        img.src = path;
+        itemDescription.textContent = description;
+        itemPrice.textContent = parseFloat(price);
+        itemPrice.className = 'basketPrice';
+        itemPrice.dataPrice = parseFloat(price)
+        quantity.value = 1;
+        quantity.addEventListener('change', () => {
+            itemPrice.textContent = (itemPrice.dataPrice * quantity.value).toFixed(2)
+        })
+
+
+        imgMin.className = "basketImage";
+        itemDescriptionMin.className = "basketDescription";
+        quantityMin.className = "basketQuantity";
+        imgMin.src = path;
+        itemDescriptionMin.textContent = description;
+        itemPriceMin.textContent = parseFloat(price);
+        itemPriceMin.className = 'basketPrice';
+        itemPriceMin.dataPrice = parseFloat(price)
+
+        quantityMin.value = 1;
+
+
+
+        basket.prepend(itemMaximized)
+        basketMinified.prepend(itemMinified)
+
+        itemMaximized.prepend(itemPrice)
+        itemMaximized.prepend(quantity)
+        itemMaximized.prepend(img)
+        itemMaximized.prepend(itemDescription)
+
+
+        itemMinified.prepend(itemPriceMin)
+        itemMinified.prepend(quantityMin)
+        itemMinified.prepend(imgMin)
+        itemMinified.prepend(itemDescriptionMin)
+
+
+
+    }
+
+}
+
+const itemsInBasket = []
+
+addNewItemBtns.forEach(btn => btn.addEventListener('click', e => {
+    const newItem = new Basket;
+    const parent = e.target.parentNode;
+    const sources = Array.from(parent.childNodes);
+    const imgSrc = sources.filter(source => source.src);
+    const price = sources.filter(source => source.title)
+    const currentname = parent.dataset['name']
+    const basketItems = Array.from(basket.querySelectorAll('.basketItemMaximized'));
+
+
+    if (itemsInBasket.includes(currentname)) {
+        const inBasket = basketItems.filter(item => item.dataName === currentname);
+        let inBasketPrice = inBasket[0].childNodes[3].dataPrice;
+        let inBasketQuantity = Number(inBasket[0].childNodes[2].value);
+        let basketInput = inBasket[0].childNodes[2]
+        basketInput.value = inBasketQuantity + 1
+
+        if (inBasketPrice === Number(inBasket[0].childNodes[3].textContent)) {
+            inBasket[0].childNodes[3].textContent = inBasketPrice * 2
+        }
+        else {
+            inBasketQuantity += 1
+            inBasket[0].childNodes[3].textContent = (inBasketQuantity * inBasketPrice).toFixed(2)
+        }
+
+
+    }
+    else {
+        newItem.addToBasket(imgSrc[0].src, price[0].textContent, currentname)
+        itemsInBasket.push(currentname)
+
+    }
+
+}))
+
+
+shoppingBag.forEach(button => button.addEventListener('click', () => {
+    basket.classList.contains('basket_open') ? basket.classList.remove('basket_open') : basket.classList.add('basket_open');
+    basketMinified.classList.contains('basket_open') ? basketMinified.classList.remove('basket_open') : basketMinified.classList.add('basket_open');
+}))
 
