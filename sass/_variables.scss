@@ -91,3 +91,49 @@
         }
     }
 }
+
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 orangered;
+    }
+
+    20% {
+        box-shadow: 0 0 0 0 orangered
+    }
+
+    30% {
+        box-shadow: 0 0 0 3px orangered
+    }
+
+    40% {
+        box-shadow: 0 0 0 0 orangered;
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 orangered
+    }
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(-2deg)
+    }
+
+    25% {
+        transform: rotate(0)
+    }
+
+    50% {
+        transform: rotate(2deg)
+    }
+
+    75% {
+        transform: rotate(0)
+    }
+
+    100% {
+        transform: rotate(0)
+    }
+
+}
