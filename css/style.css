@@ -302,7 +302,7 @@ i {
   width: 100%;
   left: -120%;
   height: 50vh;
-  top: 0;
+  top: 8vh;
   background-color: black;
   -webkit-transition: 0.3s all linear;
   transition: 0.3s all linear;
@@ -324,18 +324,16 @@ i {
 }
 
 .top_minified .searchField {
-  height: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
-.top_minified .searchFieldActive {
   height: auto;
   padding: 10px;
   margin: 0 auto;
   border: auto;
   width: 80%;
+  display: none;
+}
+
+.top_minified .searchFieldActive {
+  display: block;
 }
 
 .top_minified__item {
@@ -353,8 +351,12 @@ i {
 
 .top_minified__opener {
   position: fixed;
-  left: 1%;
-  top: 1%;
+  left: 0%;
+  top: 0%;
+  background-color: white;
+  border-radius: 50%;
+  width: 7vw;
+  height: 7vw;
 }
 
 .top_minified .convertMoney {
@@ -502,30 +504,20 @@ i {
 }
 
 .basket {
-  display: none;
+  min-height: 50px;
+  position: fixed;
+  grid-gap: 5px;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
-  height: -webkit-min-content;
-  height: -moz-min-content;
-  height: min-content;
-  grid-gap: 5px;
-  min-height: 50px;
-}
-
-.basket_open {
-  display: -ms-grid;
-  display: grid;
-}
-
-.basket {
-  height: auto;
-  position: fixed;
-  top: 10%;
+  display: none;
   right: 10%;
   left: 10%;
+  top: 10%;
   z-index: 5;
   background-color: white;
   border: 1px solid rgba(128, 128, 128, 0.2);
+  -webkit-transition: 1s linear all;
+  transition: 1s linear all;
 }
 
 @media (max-width: 735px) {
@@ -543,11 +535,21 @@ i {
   -webkit-box-ordinal-group: 1;
       -ms-flex-order: 0;
           order: 0;
+  text-align: center;
+  font-size: var(--h2FZmin);
+}
+
+.basket_open {
+  display: -ms-grid;
+  display: grid;
 }
 
 .basketImage {
-  height: 100%;
-  width: auto;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  height: 9vh;
+  width: 14vh;
 }
 
 .basketQuantity {
@@ -556,32 +558,31 @@ i {
       align-self: center;
 }
 
-@media (max-width: 735px) {
-  .basketQuantity {
-    width: 15%;
-  }
+.basketRemove {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.basketRemove:hover {
+  color: orangered;
 }
 
 .basketItemMaximized {
-  height: 10vh;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  height: auto;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   border: 1px solid rgba(128, 128, 128, 0.2);
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
-}
-
-@media (max-width: 735px) {
-  .basketItemMaximized {
-    background-color: white;
-    width: 100%;
-  }
 }
 
 .watchGallery_mainTitle {
@@ -1031,12 +1032,16 @@ i {
 
 @media (min-width: 736px) {
   .contact_form {
-    width: 50vw;
+    width: 60vw;
   }
 }
 
 .contact_form__field {
   border-radius: 10%;
+}
+
+.contact_form__field label .emailInput {
+  width: 45%;
 }
 
 .contact_form__field :focus {
@@ -1046,15 +1051,20 @@ i {
 
 .contact_form__field legend {
   font-size: var(--h4FZmin);
+  padding: 10px;
 }
 
 .contact_form__field .inputSelect {
+  margin: 10px;
   font-size: var(--paragraphFZmin);
   font-family: var(--lato);
+  width: 50%;
 }
 
 .contact_form__field .formInput {
+  margin: 10px;
   font-family: var(--lato);
+  width: 50%;
 }
 
 .footer_content {

@@ -8,7 +8,7 @@
         font-family: var(--lato);
 
         @media (min-width: 736px) {
-            width: 50vw;
+            width: 60vw;
         }
 
         &__field {
@@ -16,7 +16,10 @@
             border-radius: 10%;
 
             label {
-                // font-family: var(--lato)
+
+                .emailInput {
+                    width: 45%;
+                }
             }
 
             :focus {
@@ -25,16 +28,23 @@
 
             legend {
                 font-size: var(--h4FZmin);
+                padding: 10px;
+
 
             }
 
             .inputSelect {
+                margin: 10px;
                 font-size: var(--paragraphFZmin);
-                font-family: var(--lato)
+                font-family: var(--lato);
+                width: 50%;
             }
 
             .formInput {
-                font-family: var(--lato)
+                margin: 10px;
+                font-family: var(--lato);
+                width: 50%;
+
             }
         }
     }

@@ -17,7 +17,6 @@ const formInput = document.querySelector('.formInput');
 const submitFormBtn = document.querySelector('.submitFormBtn');
 const inputRadioLabel = document.querySelector('.inputRadioLabel');
 const modalContainer = document.querySelector('.modal_container');
-const modal = document.createElement('img');
 const modalClose = document.createElement('div');
 const wrapper = document.querySelector('.wrapper');
 const galleryItems = Array.from(document.querySelectorAll('.watchGallery_galleryItem'));
@@ -26,17 +25,12 @@ const watchGallerySub = Array.from(document.querySelectorAll('.watchGallery_gall
 const shoppingBag = document.querySelector('.shoppingBag');
 const basket = document.querySelector('.basket');
 const addNewItemBtns = Array.from(document.querySelectorAll('.newItems_add'));
+const modal = document.createElement('img');
 const itemsInBasket = []
 
 
 
 class Basket {
-
-    constructor(quantityOfItems, nameOfItem) {
-        this.quantityOfItems = quantityOfItems
-        this.nameOfItem = nameOfItem
-    }
-
 
     addToBasket(path, price, description, quantityValue) {
         const itemMaximized = document.createElement('div');
@@ -46,6 +40,7 @@ class Basket {
 
         const itemDescription = document.createElement('p');
         const quantity = document.createElement('input');
+        const remove = document.createElement('p')
 
 
         itemMaximized.dataName = description
@@ -56,25 +51,31 @@ class Basket {
         quantity.className = "basketQuantity";
         quantity.type = "number"
         img.src = path;
+        remove.innerHTML = "<i class='fas fa-times'>";
+        remove.className = 'basketRemove';
         itemDescription.textContent = description;
         itemPrice.textContent = parseFloat(price);
         itemPrice.className = 'basketPrice';
         itemPrice.dataPrice = parseFloat(price)
         quantity.value = quantityValue;
+        quantity.min = "0"
         basket.prepend(itemMaximized)
 
         itemMaximized.prepend(itemPrice)
+        itemMaximized.prepend(remove)
         itemMaximized.prepend(quantity)
         itemMaximized.prepend(img)
         itemMaximized.prepend(itemDescription)
 
         quantity.addEventListener('change', (e) => {
-            if (quantity.value == 0) {
-                e.target.parentNode.remove()
-            }
+
             itemPrice.textContent = (itemPrice.dataPrice * quantity.value).toFixed(2);
 
-        })
+        }
+
+        )
+        remove.addEventListener('click', (e) => { e.target.parentNode.remove() })
+
 
 
 
@@ -132,8 +133,12 @@ window.addEventListener('scroll', () => {
 
         newItemsParagraphTwo.classList.add('newItems_paragraphTwo_animated');
     }
+    if (basket.classList.contains('basket_open')) {
+        basket.classList.remove('basket_open')
+    }
 
     else {
+
         expandedMenu.classList.remove('top_fixed');
         mainNav.style.marginTop = 0;
     }
@@ -142,14 +147,13 @@ window.addEventListener('scroll', () => {
 const menuClose = () => {
     minifiedMenu.classList.remove('top_maximized');
     menuOpener.innerHTML = "<i class='fas fa-bars'>";
-    menuOpener.style.color = "black";
-    menuOpener.style.left = "1%";
+    menuOpener.style.border = "none";
+
 }
 const menuOpen = () => {
     minifiedMenu.classList.add('top_maximized');
     menuOpener.innerHTML = "<i class='fas fa-times'>";
-    menuOpener.style.color = "white";
-    menuOpener.style.left = "92%";
+    menuOpener.style.border = "1px solid orangered";
 }
 menuOpener.addEventListener('click', () => {
     if (!(minifiedMenu.classList.contains('top_maximized'))) {
@@ -160,10 +164,14 @@ menuOpener.addEventListener('click', () => {
     }
 })
 
-// in minified view closes the sidebar menu when event is outside of the menubox, see above for function
+// in minified view closes the sidebar menu when event is outside of the menubox, see above for function, also closes the basket if clicked outside of it
 window.addEventListener('click', (e) => {
     if (e.clientY > minifiedMenu.offsetHeight) {
         menuClose()
+    }
+
+    if (e.clientY > (basket.getBoundingClientRect().height + (window.innerHeight * 0.1))) {
+        basket.classList.remove('basket_open')
     }
 })
 
@@ -213,7 +221,7 @@ submitFormBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
     if (emailInput.value.length < 5 || !(emailInput.value.includes("@"))) {
-        emailInput.style.border = "2px solid orangered";
+        emailInput.style.border = "1px solid orangered";
         const bcgremove = () => { emailInput.style.border = "1px solid gray"; };
         setTimeout(bcgremove, 1000);
         return
@@ -226,7 +234,7 @@ submitFormBtn.addEventListener('click', (e) => {
         return
     }
     else if (formInput.value.length < 20) {
-        formInput.style.border = "2px solid orangered";
+        formInput.style.border = "1px solid orangered";
         const bcgremove = () => { formInput.style.border = "1px solid gray"; };
         setTimeout(bcgremove, 1000);
         return
@@ -246,23 +254,19 @@ modalContainer.addEventListener('click', (e) => {
     let modalnumber = modal.src.lastIndexOf(modal.src.charAt(modal.src.length - 6));
     let newSrcRight = Number(modal.src.charAt(modal.src.length - 6)) + 1;
     let newSrcLeft = Number(modal.src.charAt(modal.src.length - 6)) - 1;
-
     // these functions allow for navigating inside modals
+    const replacer = (indexRemove, newSrc) => {
+        modal.src = modal.src.substr(0, indexRemove) + newSrc + modal.src.substr((indexRemove + 1));
+    };
     if (e.clientX > (((e.target.getBoundingClientRect().width / 2) + e.target.getBoundingClientRect().x))) {
         if (Number(modal.src.charAt(modal.src.length - 6))
             !== galleryItems.length) {
-            const replacer = (indexRemove, newSrcRight) => {
-                modal.src = modal.src.substr(0, indexRemove) + newSrcRight + modal.src.substr((indexRemove + 1));
-            };
             replacer(modalnumber, newSrcRight)
         }
     }
     else {
         if (Number(modal.src.charAt(modal.src.length - 6))
             !== 1) {
-            const replacer = (indexRemove, newSrcLeft) => {
-                modal.src = modal.src.substr(0, indexRemove) + newSrcLeft + modal.src.substr((indexRemove + 1));
-            };
             replacer(modalnumber, newSrcLeft)
         }
 
@@ -292,22 +296,20 @@ addNewItemBtns.forEach(btn => btn.addEventListener('click', e => {
     // prevents adding new lines inside basket when item is already in it
     if (itemsInBasket.includes(currentname)) {
         const inBasket = basketItems.filter(item => item.dataName === currentname);
-        let inBasketPrice = inBasket[0].childNodes[3].dataPrice;
+        let inBasketPrice = inBasket[0].childNodes[4].dataPrice;
         let inBasketQuantity = Number(inBasket[0].childNodes[2].value);
         let basketInput = inBasket[0].childNodes[2]
         basketInput.value = inBasketQuantity + 1
 
-        // for instances of first 'add' and all the next
-        if (inBasketPrice === Number(inBasket[0].childNodes[3].textContent)) {
-            inBasket[0].childNodes[3].textContent = inBasketPrice * 2
-
+        // for instances of first 'add' 
+        if (inBasketPrice === Number(inBasket[0].childNodes[4].textContent)) {
+            inBasket[0].childNodes[4].textContent = inBasketPrice * 2
         }
+        // and all the next
         else {
             inBasketQuantity += 1
-            inBasket[0].childNodes[3].textContent = (inBasketQuantity * inBasketPrice).toFixed(2)
+            inBasket[0].childNodes[4].textContent = (inBasketQuantity * inBasketPrice).toFixed(2)
         }
-
-
     }
     // adds a new item based on variables and Basket class
     else {
@@ -319,12 +321,19 @@ addNewItemBtns.forEach(btn => btn.addEventListener('click', e => {
     shoppingBag.classList.add('shoppingBag_animated');
     setTimeout(bagAnimation, 200);
 
+    basket.querySelector('.basket_titles').innerHTML = `    <h5>Item Name</h5>
+    <h5>Minature</h5>
+    <h5>Quantity</h5>
+    <h5>Remove</h5>
+    <h5>Price</h5>`
+
 }))
 
 // opens/closes the basket
 
 shoppingBag.addEventListener('click', () => {
-    basket.classList.contains('basket_open') ? (basket.classList.remove('basket_open'), shoppingBag.style.color = 'black') : (basket.classList.add('basket_open'), shoppingBag.style.color = 'orangered');
+    basket.classList.contains('basket_open') ? basket.classList.remove('basket_open') : basket.classList.add('basket_open');
+
 })
 
 // send the user to a specific spot on the page
@@ -334,6 +343,7 @@ watchGallerySub.forEach(btn => btn.addEventListener('click', () => { window.scro
 
 // creates a modal popup for gallery
 const modalCreator = (e) => {
+
     let src = e.target.src
     let newSrc = src.replace(/720/gi, 1920)
 
