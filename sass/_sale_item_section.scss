@@ -17,11 +17,8 @@
 
         @media (min-width: 736px) {
             max-width: 60vw;
-
             grid-template-rows: 1fr 1fr 1fr 0.3fr;
             grid-template-columns: 1fr 1fr 1fr;
-            justify-items: center;
-
         }
     }
 
@@ -34,6 +31,7 @@
         border-radius: 2%;
         filter: sepia(50%);
         transition: 0.2s linear all;
+        box-shadow: 0 0 2px black;
 
         &:nth-child(1),
         &:nth-child(2),
@@ -57,11 +55,9 @@
 
         @media (min-width: 736px) {
             display: block;
-            text-transform: uppercase;
             text-align: center;
             font-size: var(--h4FZmin);
         }
-
     }
 
     &_SubMinimal {

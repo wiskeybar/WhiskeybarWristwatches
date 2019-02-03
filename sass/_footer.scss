@@ -1,6 +1,5 @@
 .footer {
     &_content {
-        width: 100%;
         height: 10vh;
         display: flex;
         align-items: center;
@@ -14,18 +13,13 @@
 
         }
 
-        &__adress {
+        &__adress,
+        &__contact,
+        &__copyright {
             font-size: calc(var(--paragraphFZmin)*0.6);
-
-        }
-
-        &__contact {
-            font-size: calc(var(--paragraphFZmin)*0.6);
-
         }
 
         &__copyright {
-            font-size: calc(var(--paragraphFZmin)*0.6);
             flex-grow: 1;
         }
 
@@ -41,11 +35,6 @@
                     color: orangered;
                 }
             }
-
         }
-
-
-
-
     }
 }

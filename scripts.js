@@ -35,7 +35,7 @@ class Basket {
     addToBasket(path, price, description, quantityValue) {
         const itemMaximized = document.createElement('div');
 
-        const img = document.createElement('img');
+        const img = document.createElement('div');
         const itemPrice = document.createElement('p')
 
         const itemDescription = document.createElement('p');
@@ -50,7 +50,8 @@ class Basket {
         itemDescription.className = "basketDescription";
         quantity.className = "basketQuantity";
         quantity.type = "number"
-        img.src = path;
+        img.innerHTML = `<img src=${path}>`
+        // img.src = path;
         remove.innerHTML = "<i class='fas fa-times'>";
         remove.className = 'basketRemove';
         itemDescription.textContent = description;
@@ -137,7 +138,7 @@ window.addEventListener('scroll', () => {
         basket.classList.remove('basket_open')
     }
 
-    else {
+    else if (pageYOffset <= 150) {
 
         expandedMenu.classList.remove('top_fixed');
         mainNav.style.marginTop = 0;
@@ -172,6 +173,14 @@ window.addEventListener('click', (e) => {
 
     if (e.clientY > (basket.getBoundingClientRect().height + (window.innerHeight * 0.1))) {
         basket.classList.remove('basket_open')
+    }
+})
+// makes sure that when resize happens there is no overflow-scroll on trendingItems section
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 735) {
+        trendingItemsContainer.classList.remove('trendingItems_container_active')
+        trendingItemsGalleryBtn.textContent = "see what's trending"
+
     }
 })
 
@@ -213,7 +222,6 @@ trendingItemsGalleryBtn.addEventListener('click', () => {
     else if (trendingItemsContainer.classList.contains('trendingItems_container_active')) {
         trendingItemsContainer.classList.remove('trendingItems_container_active')
         trendingItemsGalleryBtn.textContent = "see what's trending"
-
     }
 })
 // operates hints for input in contact form
@@ -313,7 +321,8 @@ addNewItemBtns.forEach(btn => btn.addEventListener('click', e => {
     }
     // adds a new item based on variables and Basket class
     else {
-        newItem.addToBasket(imgSrc[0].src, price[0].textContent, currentname, quantity)
+        let newSrc = imgSrc[0].src.replace(/720/gi, 320)
+        newItem.addToBasket(newSrc, price[0].textContent, currentname, quantity)
         itemsInBasket.push(currentname)
         this.nameOfItem = currentname
     }
@@ -345,7 +354,7 @@ watchGallerySub.forEach(btn => btn.addEventListener('click', () => { window.scro
 const modalCreator = (e) => {
 
     let src = e.target.src
-    let newSrc = src.replace(/720/gi, 1920)
+    let newSrc = src.replace(/720/g, 1920)
 
     modal.className = "modalPopup";
     modal.src = newSrc

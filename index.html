@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="whiskeybar">
+    <meta name="description" content="Interface for wristwatch shop">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
     <link href="https://fonts.googleapis.com/css?family=Lato|Oswald:400,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
         crossorigin="anonymous">
@@ -14,9 +17,6 @@
 
 <body>
     <div class='wrapper'>
-
-
-
         <section class="top">
             <h1 class="top_expanded__companyName">Wristwaches</h1>
             <div class="top_expanded">
@@ -27,47 +27,38 @@
                     <button title="Choose your currency - rubles" data-btnKey='1' class="convertMoney_rubels convertMoneyBtnTop invisible">
                         <i class="fas fa-ruble-sign "></i>
                     </button>
-
                     <button title="Choose your currency - yens" data-btnKey='2' class="convertMoney_yens convertMoneyBtnTop invisible">
                         <i class="fas fa-yen-sign "></i>
                     </button>
                     <button title="Choose your currency -euros" data-btnKey='3' class="convertMoney_euros convertMoneyBtnTop invisible">
                         <i class="fas fa-euro-sign "></i>
                     </button>
-
                 </div>
-
                 <input type="text" placeholder="What are you searching for?" class="top_expanded__item searchField">
                 <button title="Search for items" class="top_expanded__item searchItems"> <i class="fas fa-search"></i></button>
-
                 <button title="Locate my nearest shop" class="top_expanded__item locateMe"> <i class="fas fa-map-marker-alt"></i>
                 </button>
                 <button title="Create Account/Login" class="top_expanded__item createAccount"> <i class="fas fa-user-circle"></i>
                 </button>
                 <button title="View shopping bag" class="top_expanded__item shoppingBag"> <i class="fas fa-shopping-bag"></i>
                 </button>
-
             </div>
             <div class="basket">
                 <div class="basket_titles">
                     There's nothing in your basket
                 </div>
             </div>
-
             <div class="top_minified">
                 <button class="top_minified__opener"> <i class="fas fa-bars"></i></button>
                 <input type="text" placeholder="What are you searching for?" class="top_expanded__item searchField">
-
                 <button title="Search for items" class="top_minified__item searchItems">
                     <i class="fas fa-search"></i> Search for items
                 </button>
-
                 <div class="top_minified__item convertMoney">
                     <button title="Choose your currency" class="convertMoneyBtnMin visable" data-btnKey='0'>
                         <i class="fas fa-dollar-sign"></i>
                     </button>
                     <button title="Choose your currency" class="convertMoneyBtnMin invisable" data-btnKey='1'>
-
                         <i class="fas fa-ruble-sign "></i>
                     </button>
                     <button title="Choose your currency" class="convertMoneyBtnMin invisable" data-btnKey='2'>
@@ -76,10 +67,7 @@
                     <button title="Choose your currency" class="convertMoneyBtnMin invisable" data-btnKey='3'>
                         <i class="fas fa-euro-sign "> </i>
                     </button>
-
-
                     <button title="Choose your currency" class="convertMoneyBtnTxt ">your currency</button>
-
                 </div>
                 <button title="Locate my nearest shop" class="top_minified__item locateMe">
                     <i class="fas fa-map-marker-alt"></i> Locate nearest shop
@@ -90,10 +78,8 @@
                 <button title="View shopping bag" class="top_minified__item shoppingBag">
                     <i class="fas fa-shopping-bag"></i> Shopping bag
                 </button>
-
             </div>
             <div class="top_nav">
-
                 <button class="top_nav__listElement">Woman</button>
                 <button class="top_nav__listElement">Man</button>
                 <button class="top_nav__listElement">Unisex</button>
@@ -101,33 +87,26 @@
                 <button class="top_nav__listElement">Buckles</button>
                 <img class='top_nav__image' src="img/watches/1920/1920cover.JPG" alt="header image" sizes="(min-width:1441px) 1920px, (max-width:1440px) 1440px, (max-width:1020px) 1020px, (max-width:720px) 720px, (min-width:320px) 320px"
                     srcset="img/watches/1920/1920cover.JPG 1920w, img/watches/1440/1440cover.JPG 1440w, img/watches/1020/1020cover.JPG 1020w, img/watches/720/720cover.JPG 720w, img/watches/320/320cover.JPG 320w">
-
             </div>
         </section>
-
         <section class="shoppingSection">
             <div class=" newItems">
                 <h2 class="newItems_mainHeadline newItems_headline">New Items in stock!</h2>
                 <p class="newItems_paragraphOne"> Browse our stock for new exciting items
                 </p>
                 <div class='newItems_examplePicContainer'>
-
                     <div data-name='watch 1' class='newItems_examplePicContainer__examplePic'>
                         <img class='innerPic' src="img/watches/720/720(1).jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
                             srcset="img/watches/720/720(1).jpg 720w, img/watches/320/320(1).jpg 320w">
                         <button class="newItems_add"> <i class="fas fa-shopping-bag"> </i></button>
                         <h5 title="price" class="newItems_price">49.99</h5>
                     </div>
-
-
                     <div data-name="watch 2" class='newItems_examplePicContainer__examplePic'>
                         <img class='innerPic' src="img/watches/720/720(2).jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
                             srcset="img/watches/720/720(2).jpg 720w, img/watches/320/320(2).jpg 320w">
                         <button class="newItems_add"> <i class="fas fa-shopping-bag"> </i></button>
                         <h5 title="price" class="newItems_price">49.99</h5>
-
                     </div>
-
                     <div data-name="watch 3" class='newItems_examplePicContainer__examplePic'>
                         <img class='innerPic' src="img/watches/720/720(3).jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
                             srcset="img/watches/720/720(3).jpg 720w, img/watches/320/320(3).jpg 320w">
@@ -135,23 +114,17 @@
                             <i class="fas fa-shopping-bag"> </i>
                         </button>
                         <h5 title="price" class="newItems_price">49.99</h5>
-
-
                     </div>
                     <div data-name="watch 4" class='newItems_examplePicContainer__examplePic'>
                         <img class='innerPic' src="img/watches/720/720(4).jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
                             srcset="img/watches/720/720(4).jpg 720w, img/watches/320/320(4).jpg 320w">
                         <button class="newItems_add"> <i class="fas fa-shopping-bag"> </i></button>
                         <h5 title="price" class="newItems_price">49.99</h5>
-
-
                     </div>
                     <button class="newItems_examplePicContainer__seeMoreBtn">show more</button>
                     <button class="newItems_examplePicContainer__seeMoreBtn">show more</button>
-
                 </div>
                 <h2 class="newItems_secondHeadline newItems_headline">Time is of the essence
-
                 </h2>
                 <p class="newItems_paragraphTwo"> And if essence is what you are looking for - well, your in the
                     right
@@ -164,33 +137,24 @@
                     website to pick the most unique watch you can get on the market.</p>
             </div>
         </section>
-
         <section class="shoppingSection">
             <div class="watchGallery">
                 <h2 class="watchGallery_mainTitle">Not sure yet?</h2>
                 <p class="watchGallery_introduction">Well, if you're still pondering - here's some eyecandy to keep you
                     going.</p>
                 <div class="watchGallery_gallery saleItems">
-
                     <img data-modal='0' class='watchGallery_galleryItem ' src="img/watches/720/720(1).jpg" alt="header image"
                         sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720/720(1).jpg 720w, img/watches/320/320(1).jpg 320w">
-
                     <img data-modal='1' class='watchGallery_galleryItem ' src="img/watches/720/720(2).jpg" alt="header image"
                         sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720/720(2).jpg 720w, img/watches/320/320(2).jpg 320w">
-
                     <img data-modal='2' class='watchGallery_galleryItem ' src="img/watches/720/720(5).jpg" alt="header image"
                         sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720/720(5).jpg 720w, img/watches/320/320(5).jpg 320w">
-
                     <img data-modal='3' class='watchGallery_galleryItem ' src="img/watches/720/720(4).jpg" alt="header image"
                         sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720/720(4).jpg 720w, img/watches/320/320(4).jpg 320w">
-
                     <img data-modal='4' class='watchGallery_galleryItem ' src="img/watches/720/720(3).jpg" alt="header image"
                         sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720/720(3).jpg 720w, img/watches/320/320(3).jpg 320w">
-
                     <img data-modal='5' class='watchGallery_galleryItem ' src="img/watches/720/720(6).jpg" alt="header image"
                         sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720/720(6).jpg 720w, img/watches/320/320(6).jpg 320w">
-
-
                     <img data-modal='6' class='watchGallery_galleryItem ' src="img/watches/720/720(7).jpg" alt="header image"
                         sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720/720(7).jpg 720w, img/watches/320/320(7).jpg 320w">
 
@@ -199,8 +163,6 @@
 
                     <img data-modal='8' class='watchGallery_galleryItem ' src="img/watches/720/720(9).jpg" alt="header image"
                         sizes="(min-width:1441px) 720px, (min-width:320px) 320px" srcset="img/watches/720/720(9).jpg 720w, img/watches/320/320(9).jpg 320w">
-
-
                     <button class="watchGallery_gallerySub">i</button>
                     <button class="watchGallery_gallerySub">want</button>
                     <button class="watchGallery_gallerySub">more</button>
@@ -209,7 +171,6 @@
                 </div>
             </div>
         </section>
-
         <section class="shoppingSection">
             <div class=" trendingItems">
                 <h1 class="trendingItems_mainHeadline">
@@ -221,43 +182,32 @@
                     pieces
                     (and it just so happens we have them in hot prices!)</p>
                 <button class='trendingItems_showGallery'>See what's trending</button>
-
                 <div class="trendingItems_container">
                     <div data-name="watch 5" class='trendingItems_container__Item'>
-
                         <img class=' saleItem' src="img/watches/720/720(5).jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
                             srcset="img/watches/720/720(5).jpg 720w, img/watches/320/320(5).jpg 320w">
                         <button class="newItems_add"> <i class="fas fa-shopping-bag"> </i></button>
                         <h5 title="price" class="newItems_price">49.99</h5>
-
-
                     </div>
-
                     <div data-name="watch 6" class='trendingItems_container__Item'>
                         <img class=' saleItem' src="img/watches/720/720(1).jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
                             srcset="img/watches/720/720(1).jpg 720w, img/watches/320/320(1).jpg 320w">
                         <button class="newItems_add"> <i class="fas fa-shopping-bag"> </i></button>
                         <h5 title="price" class="newItems_price">49.99</h5>
-
                     </div>
-
                     <div data-name="watch 7" class='trendingItems_container__Item'>
                         <img class=' saleItem' src="img/watches/720/720(4).jpg" alt="header image" sizes="(min-width:1441px) 720px, (min-width:320px) 320px"
                             srcset="img/watches/720/720(4).jpg 720w, img/watches/320/320(4).jpg 320w">
                         <button class="newItems_add"> <i class="fas fa-shopping-bag"> </i></button>
                         <h5 title="price" class="newItems_price">49.99</h5>
-
                     </div>
-
                 </div>
                 <p class="trendingItems_outro"> Get your items while we still got them, we won't be making new ones
                     anytime
                     soon!</p>
             </div>
         </section>
-
         <aside class="contact">
-
             <h2 class="contact_mainTitle">Found something interesting?</h2>
             <p class="contact_introduction">We hope that you'll enjoy our watches as much as we enjoy making them. If
                 you
@@ -281,9 +231,7 @@
                 </fieldset>
             </form>
         </aside>
-
         <footer class="footer">
-
             <div class="footer_content">
                 <p class="footer_content__adress footer_content__item">Here is the adress.</p>
                 <p class="footer_content__contact footer_content__item">And here is the contact.</p>
@@ -293,22 +241,12 @@
                     <a href="https://github.com/wiskeybar"> <i class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/bartoszwisniewski5/">  <i class="fab fa-linkedin-in"></i></a>
                     <a href="mailto:wis.keybar87@gmail.com">  <i class="fas fa-at"></i></a>
-
-
                 </div>
-
             </div>
         </footer>
-
-
-
     </div>
     </div>
-
     <div class="modal_container"></div>
-
-
-
     <script src="scripts.js"></script>
 </body>
 

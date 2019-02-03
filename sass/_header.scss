@@ -1,0 +1,50 @@
+    // CSS for items menu and background image;
+    .top_nav {
+        max-width: 90vw;
+        height: 10vh;
+        display: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        @media (min-width: 736px) {
+            height: 30vh;
+        }
+
+        &__image {
+            max-width: 99%;
+            z-index: -1;
+            position: absolute;
+            filter: grayscale(30%);
+            transition: 0.15s linear filter;
+        }
+
+        &__listElement {
+            display: none;
+            box-sizing: content-box;
+            color: white;
+            flex-basis: 10%;
+            font-family: var(--oswald);
+            border-bottom: 3px solid transparent;
+            font-size: var(--paragraphFZmin);
+            box-shadow: 0 0 25px inset black;
+            border-radius: 5%;
+            letter-spacing: 2px;
+
+            @media (min-width: 736px) {
+                display: block;
+            }
+
+            &:hover~.top_nav__image {
+                filter: grayscale(100%)
+            }
+
+            &:hover {
+                border-bottom: ridge 3px orangered;
+                color: black;
+                text-shadow: 1px 1px 10px orangered;
+                box-shadow: 0 0 25px inset orangered;
+                font-weight: bold;
+            }
+        }
+    }

@@ -1,7 +1,8 @@
 .contact {
     width: 80vw;
-    text-align: center;
     margin: 0 auto 10vh;
+
+    text-align: center;
 
     &_form {
         margin: 0 auto;
@@ -22,28 +23,22 @@
                 }
             }
 
-            :focus {
-                box-shadow: 0 0 5px red;
-            }
 
             legend {
-                font-size: var(--h4FZmin);
                 padding: 10px;
-
-
+                font-size: var(--h4FZmin);
             }
 
             .inputSelect {
                 margin: 10px;
                 font-size: var(--paragraphFZmin);
                 font-family: var(--lato);
-                width: 50%;
             }
 
             .formInput {
+                width: 50%;
                 margin: 10px;
                 font-family: var(--lato);
-                width: 50%;
 
             }
         }

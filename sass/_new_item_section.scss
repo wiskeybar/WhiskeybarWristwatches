@@ -51,10 +51,6 @@
             .innerPic {
                 max-width: 100%;
             }
-
-
-
-
         }
 
         &__examplePic:nth-of-type(1) {
@@ -85,10 +81,10 @@
 
         &__examplePic:hover {
             filter: grayscale(0);
-            transform: scale(1.1)
+            transform: scale(1.1);
+            box-shadow: 0 0 10px inset black;
+
         }
-
-
 
         &__examplePic:hover .newItems_add {
             animation: pulse 8s infinite;
@@ -99,12 +95,8 @@
             bottom: 5%;
         }
 
-
-
-
         &__seeMoreBtn {
             font-size: calc(var(--paragraphFZmin)*0.75);
-            justify-self: stretch;
             transition: 0.2s linear all;
 
             @media (max-width: 735px) {

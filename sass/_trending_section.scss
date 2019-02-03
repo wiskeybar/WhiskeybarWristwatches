@@ -12,6 +12,8 @@
 
     &_container {
 
+        overflow: hidden;
+
         @media (min-width: 736px) {
             height: auto;
             display: flex;
@@ -39,10 +41,6 @@
                 height: 90vh;
                 visibility: visible;
                 overflow: scroll;
-
-
-
-
             }
         }
 
